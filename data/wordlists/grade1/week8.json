@@ -1,0 +1,74 @@
+{
+  "grade": 1,
+  "week": 8,
+  "title": "Grade 1 · Week 8",
+  "words": [
+    {
+      "id": "g1w8-ship",
+      "word": "ship",
+      "def": "A large boat that travels on the sea.",
+      "sentence": "The big ship sailed across the ocean.",
+      "img": "",
+      "emoji": "🚢",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [
+        { "text": "sh", "type": "digraph" },
+        { "text": "i", "type": "vowel" },
+        { "text": "p", "type": "consonant" }
+      ]
+    },
+    {
+      "id": "g1w8-frog",
+      "word": "frog",
+      "def": "A small green animal that hops and lives near water.",
+      "sentence": "The frog jumped into the pond.",
+      "img": "",
+      "emoji": "🐸",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [
+        { "text": "fr", "type": "blend" },
+        { "text": "o", "type": "vowel" },
+        { "text": "g", "type": "consonant" }
+      ]
+    },
+    {
+      "id": "g1w8-rain",
+      "word": "rain",
+      "def": "Water that falls from clouds in the sky.",
+      "sentence": "We stayed inside during the rain.",
+      "img": "",
+      "emoji": "🌧️",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [
+        { "text": "r", "type": "consonant" },
+        { "text": "ai", "type": "vowelTeam" },
+        { "text": "n", "type": "consonant" }
+      ]
+    },
+    {
+      "id": "g1w8-said",
+      "word": "said",
+      "def": "The past tense of say.",
+      "sentence": "She said hello to her friend.",
+      "img": "",
+      "emoji": "💬",
+      "tricky": true,
+      "chunksSource": "auto",
+      "chunks": []
+    },
+    {
+      "id": "g1w8-was",
+      "word": "was",
+      "def": "The past tense of is.",
+      "sentence": "It was a sunny day.",
+      "img": "",
+      "emoji": "⏳",
+      "tricky": true,
+      "chunksSource": "auto",
+      "chunks": []
+    }
+  ]
+}

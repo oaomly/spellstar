@@ -1,0 +1,40 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files (never commit API keys)
+.env
+.env*.local
+.netlify
+
+# local editor/agent state
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+# legacy prototype — contains an exposed API key; kept locally for reference only,
+# never commit it (would put the key in git history)
+week7.html
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# vitest
+/coverage

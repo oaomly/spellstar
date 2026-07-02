@@ -1,0 +1,82 @@
+{
+  "grade": 1,
+  "week": 7,
+  "title": "Grade 1 · Week 7",
+  "words": [
+    {
+      "id": "g1w7-glass",
+      "word": "glass",
+      "def": "A hard, clear material used to make windows and cups; or a container for drinking.",
+      "sentence": "She poured cold water into the glass.",
+      "img": "",
+      "emoji": "🥛",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [
+        { "text": "gl", "type": "blend" },
+        { "text": "a", "type": "vowel" },
+        { "text": "ss", "type": "consonant" }
+      ]
+    },
+    {
+      "id": "g1w7-plus",
+      "word": "plus",
+      "def": "The sign (+) that means to add; or an extra amount of something.",
+      "sentence": "Two plus three equals five.",
+      "img": "",
+      "emoji": "➕",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [
+        { "text": "pl", "type": "blend" },
+        { "text": "u", "type": "vowel" },
+        { "text": "s", "type": "consonant" }
+      ]
+    },
+    {
+      "id": "g1w7-star",
+      "word": "star",
+      "def": "A bright ball of burning gas seen in the night sky; or a shape with points.",
+      "sentence": "A bright star shone in the dark sky.",
+      "img": "",
+      "emoji": "⭐",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [
+        { "text": "st", "type": "blend" },
+        { "text": "ar", "type": "rControlled" }
+      ]
+    },
+    {
+      "id": "g1w7-sun",
+      "word": "sun",
+      "def": "The bright star at the center of our solar system that gives us light and heat.",
+      "sentence": "The sun rises in the east every morning.",
+      "img": "",
+      "emoji": "☀️",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [
+        { "text": "s", "type": "consonant" },
+        { "text": "u", "type": "vowel" },
+        { "text": "n", "type": "consonant" }
+      ]
+    },
+    {
+      "id": "g1w7-cookie",
+      "word": "cookie",
+      "def": "A small, sweet baked treat, usually flat and round.",
+      "sentence": "He ate a chocolate chip cookie after lunch.",
+      "img": "",
+      "emoji": "🍪",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [
+        { "text": "c", "type": "consonant" },
+        { "text": "oo", "type": "vowelTeam" },
+        { "text": "k", "type": "consonant" },
+        { "text": "ie", "type": "vowelTeam" }
+      ]
+    }
+  ]
+}
