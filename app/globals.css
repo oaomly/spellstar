@@ -224,6 +224,12 @@ button {
 .nav-arrows button:hover { border-color: var(--primary); background: var(--primary-light); }
 .nav-arrows .word-counter { font-weight: 700; color: var(--text2); font-size: 15px; min-width: 60px; text-align: center; }
 
+/* LESSON MODE TOGGLE */
+.seg { display: inline-flex; background: var(--primary-light); border-radius: 30px; padding: 4px; gap: 4px; margin: 0 auto 14px; }
+.seg-btn { border: none; background: none; padding: 8px 18px; border-radius: 24px; font-family: var(--font-nunito), 'Nunito', sans-serif; font-weight: 800; font-size: 14px; color: var(--primary); cursor: pointer; transition: all .2s; }
+.seg-btn.active { background: var(--primary); color: white; }
+.flashcard-area > .seg { display: flex; width: fit-content; }
+
 /* PHONICS CHUNKS */
 .phonics-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 20px 0; }
 .chunk {

@@ -46,11 +46,15 @@ export interface WordList {
 
 export type Accent = 'en-US' | 'en-GB' | 'en-AU' | 'en-IN';
 
+/** Lesson voicing: phoneme sounds vs. letter names (spell-out). */
+export type LessonMode = 'sounds' | 'letters';
+
 export interface Settings {
   accent: Accent;
   rate: number; // 0.5 - 1.5
   confetti: boolean;
   autospeak: boolean;
+  lessonMode: LessonMode;
   /** Soft client-side edit gate. null = no PIN set. Replaces hardcoded 'SpellABC'. */
   editPin: string | null;
   /** A parent's OWN Google Vision key, localStorage-only, never bundled. */
@@ -64,6 +68,7 @@ export const DEFAULT_SETTINGS: Settings = {
   rate: 0.85,
   confetti: true,
   autospeak: true,
+  lessonMode: 'sounds',
   editPin: null,
 };
 

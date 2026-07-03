@@ -5,6 +5,21 @@ A phonics-first spelling practice site for kids. Words are taught by **sound chu
 (`said`, `was`) handled as a separate look-say-remember drill. Ten games let the child
 freely pick what to play.
 
+The lesson has **two voicing modes** (toggle at the top, remembered in Settings):
+
+- **🔊 Sounds** — plays the *phoneme* of each chunk (/g/ /l/ /a/ /s/), then blends into the
+  word. This is true phonics, like a phonics song.
+- **🔤 Letter names** — spells the word out by letter name (gee · ell · ay · ess · ess).
+
+### Authentic phoneme audio (optional upgrade)
+
+Browser text-to-speech can't emit *perfect* isolated phonemes, so Sounds mode ships with
+tuned TTS approximations (`s`→"sss", `a`→"aah", `b`→"buh"). To use real recorded clips
+(Jolly-Phonics style) instead: drop `<grapheme>.mp3` files into
+`public/audio/phonemes/` (e.g. `a.mp3`, `sh.mp3`, `ee.mp3`) and list those grapheme keys
+in `PHONEME_AUDIO` in `lib/phonics/graphemeSound.ts`. Playback then prefers the clip and
+falls back to TTS for any grapheme without one — no other code changes needed.
+
 Built with **Next.js (App Router, static export)** — no accounts, no database. It runs
 entirely in the browser (localStorage + Web Speech API), with one small Netlify function
 for optional handwriting recognition.
