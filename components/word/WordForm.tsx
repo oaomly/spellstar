@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import type { PhonicsChunk, Word } from '@/lib/data/types';
 import { splitChunks } from '@/lib/phonics/splitChunks';
 import { suggestTricky } from '@/lib/phonics/suggestTricky';
+import { lookupWord } from '@/lib/dictionary/lookup';
+import { useSettings } from '@/components/providers/SettingsProvider';
 import { ChunkEditor } from './ChunkEditor';
 
 const EMOJIS = ['📝', '🌟', '🎯', '🌈', '🐶', '🐱', '🦊', '🐸', '🌺', '⭐', '🍎', '🎈', '🚀', '🏆', '🎵', '🚢', '🌧️', '💬'];
@@ -21,6 +23,7 @@ export function WordForm({
   onSave: (word: Word) => void;
   onCancel: () => void;
 }) {
+  const { settings } = useSettings();
   const [word, setWord] = useState(initial?.word ?? '');
   const [def, setDef] = useState(initial?.def ?? '');
   const [sentence, setSentence] = useState(initial?.sentence ?? '');
@@ -30,6 +33,13 @@ export function WordForm({
   const [chunksSource, setChunksSource] = useState<'auto' | 'manual'>(initial?.chunksSource ?? 'auto');
   const [suggestion, setSuggestion] = useState('');
   const [touchedTricky, setTouchedTricky] = useState(!!initial);
+
+  // Dictionary-enriched fields (filled by "Look up").
+  const [pronMw, setPronMw] = useState(initial?.pronMw);
+  const [audioUrl, setAudioUrl] = useState(initial?.audioUrl);
+  const [usage, setUsage] = useState<string[] | undefined>(initial?.usage);
+  const [partOfSpeech, setPartOfSpeech] = useState(initial?.partOfSpeech);
+  const [lookupState, setLookupState] = useState<'idle' | 'loading' | 'done' | 'notfound' | 'error'>('idle');
 
   // Auto-split + tricky suggestion as the word is typed (only for new/untouched words).
   useEffect(() => {
@@ -44,12 +54,42 @@ export function WordForm({
     if (chunksSource === 'auto') {
       setChunks(sug.tricky ? [] : splitChunks(w).chunks);
     }
+    // Dictionary data belongs to a specific spelling — drop it if the word changed.
+    if (w !== initial?.word) {
+      setPronMw(undefined);
+      setAudioUrl(undefined);
+      setUsage(undefined);
+      setPartOfSpeech(undefined);
+      setLookupState('idle');
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [word]);
 
   const reSplit = () => {
     setChunks(splitChunks(word).chunks);
     setChunksSource('auto');
+  };
+
+  const doLookup = async () => {
+    const w = word.trim().toLowerCase();
+    if (!w) return;
+    setLookupState('loading');
+    try {
+      const entry = await lookupWord(w, settings.dictionaryApiKey);
+      if (!entry) {
+        setLookupState('notfound');
+        return;
+      }
+      if (entry.pronMw) setPronMw(entry.pronMw);
+      if (entry.audioUrl) setAudioUrl(entry.audioUrl);
+      if (entry.usage.length) setUsage(entry.usage);
+      if (entry.partOfSpeech) setPartOfSpeech(entry.partOfSpeech);
+      if ((!def || !def.trim()) && entry.definitions[0]) setDef(entry.definitions[0]);
+      if ((!sentence || !sentence.trim()) && entry.usage[0]) setSentence(entry.usage[0]);
+      setLookupState('done');
+    } catch {
+      setLookupState('error');
+    }
   };
 
   const handleChunkChange = (next: PhonicsChunk[]) => {
@@ -78,6 +118,10 @@ export function WordForm({
       tricky,
       chunks: tricky ? [] : chunks,
       chunksSource,
+      pronMw,
+      audioUrl,
+      usage,
+      partOfSpeech,
     });
   };
 
@@ -88,7 +132,39 @@ export function WordForm({
 
         <div className="form-group">
           <label>Word *</label>
-          <input value={word} onChange={(e) => setWord(e.target.value)} placeholder="e.g. shop" autoFocus />
+          <div style={{ display: 'flex', gap: 8 }}>
+            <input
+              value={word}
+              onChange={(e) => setWord(e.target.value)}
+              placeholder="e.g. shop"
+              autoFocus
+              style={{ flex: 1 }}
+            />
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={doLookup}
+              disabled={!word.trim() || lookupState === 'loading'}
+            >
+              {lookupState === 'loading' ? '…' : '🔎 Look up'}
+            </button>
+          </div>
+          {lookupState === 'done' && (
+            <p className="phonics-hint" style={{ textAlign: 'left', color: 'var(--green)' }}>
+              ✓ Filled from dictionary{pronMw ? ` · /${pronMw}/` : ''}
+              {audioUrl ? ' · 🔊 audio' : ''}
+            </p>
+          )}
+          {lookupState === 'notfound' && (
+            <p className="phonics-hint" style={{ textAlign: 'left' }}>
+              Not in the dictionary — fill in the details yourself.
+            </p>
+          )}
+          {lookupState === 'error' && (
+            <p className="phonics-hint" style={{ textAlign: 'left', color: 'var(--accent)' }}>
+              Lookup unavailable (needs the dictionary proxy or your own key in Settings).
+            </p>
+          )}
         </div>
 
         {suggestion && (

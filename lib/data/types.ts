@@ -31,6 +31,17 @@ export interface Word {
   chunks: PhonicsChunk[];
   /** 'manual' once a parent edits chunks, so re-running the splitter won't clobber. */
   chunksSource?: 'auto' | 'manual';
+
+  // --- Dictionary enrichment (Merriam-Webster). All optional. ---
+  /** IPA transcription, e.g. "ˈstɑr". Drives letter↔sound alignment + display. */
+  ipa?: string;
+  /** Raw Merriam-Webster pronunciation notation, kept for reference. */
+  pronMw?: string;
+  /** Merriam-Webster audio mp3 URL — the DEFAULT word pronunciation (TTS is fallback). */
+  audioUrl?: string;
+  /** Extra example sentences from the dictionary (beyond `sentence`). */
+  usage?: string[];
+  partOfSpeech?: string;
 }
 
 export type GradeKey = number | 'custom';
@@ -55,10 +66,14 @@ export interface Settings {
   confetti: boolean;
   autospeak: boolean;
   lessonMode: LessonMode;
+  /** Prefer the computer voice (TTS) over recorded dictionary audio. Default false. */
+  preferTts: boolean;
   /** Soft client-side edit gate. null = no PIN set. Replaces hardcoded 'SpellABC'. */
   editPin: string | null;
   /** A parent's OWN Google Vision key, localStorage-only, never bundled. */
   visionApiKey?: string;
+  /** A parent's OWN Merriam-Webster key for word lookups, localStorage-only. */
+  dictionaryApiKey?: string;
   lastVisitedGrade?: GradeKey;
   lastVisitedWeek?: number;
 }
@@ -69,6 +84,7 @@ export const DEFAULT_SETTINGS: Settings = {
   confetti: true,
   autospeak: true,
   lessonMode: 'sounds',
+  preferTts: false,
   editPin: null,
 };
 

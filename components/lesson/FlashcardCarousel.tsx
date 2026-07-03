@@ -11,7 +11,7 @@ import { usePhonicsAudio } from '@/lib/tts/usePhonicsAudio';
 export function FlashcardCarousel({ words }: { words: Word[] }) {
   const [idx, setIdx] = useState(0);
   const { settings, update } = useSettings();
-  const { speakWord, stop } = usePhonicsAudio();
+  const { playWord, stop } = usePhonicsAudio();
   const mode: LessonMode = settings.lessonMode;
 
   const current = words[idx];
@@ -21,7 +21,7 @@ export function FlashcardCarousel({ words }: { words: Word[] }) {
   }, [words.length, idx]);
 
   useEffect(() => {
-    if (settings.autospeak && current) speakWord(current.word);
+    if (settings.autospeak && current) playWord(current.word, current.audioUrl);
     return () => stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idx, current?.id]);

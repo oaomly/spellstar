@@ -13,9 +13,24 @@
       "tricky": false,
       "chunksSource": "auto",
       "chunks": [
-        { "text": "gl", "type": "blend" },
-        { "text": "a", "type": "vowel" },
-        { "text": "ss", "type": "consonant" }
+        {
+          "text": "gl",
+          "type": "blend"
+        },
+        {
+          "text": "a",
+          "type": "vowel"
+        },
+        {
+          "text": "ss",
+          "type": "consonant"
+        }
+      ],
+      "pronMw": "ˈglas",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/g/glass001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "a glass of milk"
       ]
     },
     {
@@ -28,9 +43,24 @@
       "tricky": false,
       "chunksSource": "auto",
       "chunks": [
-        { "text": "pl", "type": "blend" },
-        { "text": "u", "type": "vowel" },
-        { "text": "s", "type": "consonant" }
+        {
+          "text": "pl",
+          "type": "blend"
+        },
+        {
+          "text": "u",
+          "type": "vowel"
+        },
+        {
+          "text": "s",
+          "type": "consonant"
+        }
+      ],
+      "pronMw": "ˈpləs",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/p/plus0001.mp3",
+      "partOfSpeech": "adjective",
+      "usage": [
+        "Maybe she thought I deserved at least a B plus."
       ]
     },
     {
@@ -43,8 +73,21 @@
       "tricky": false,
       "chunksSource": "auto",
       "chunks": [
-        { "text": "st", "type": "blend" },
-        { "text": "ar", "type": "rControlled" }
+        {
+          "text": "st",
+          "type": "blend"
+        },
+        {
+          "text": "ar",
+          "type": "rControlled"
+        }
+      ],
+      "pronMw": "ˈstär",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/star0001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "a movie star",
+        "She was born under a lucky star."
       ]
     },
     {
@@ -57,9 +100,24 @@
       "tricky": false,
       "chunksSource": "auto",
       "chunks": [
-        { "text": "s", "type": "consonant" },
-        { "text": "u", "type": "vowel" },
-        { "text": "n", "type": "consonant" }
+        {
+          "text": "s",
+          "type": "consonant"
+        },
+        {
+          "text": "u",
+          "type": "vowel"
+        },
+        {
+          "text": "n",
+          "type": "consonant"
+        }
+      ],
+      "pronMw": "ˈsən",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/sun00001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "I'm going outside to get some sun."
       ]
     },
     {
@@ -72,11 +130,26 @@
       "tricky": false,
       "chunksSource": "auto",
       "chunks": [
-        { "text": "c", "type": "consonant" },
-        { "text": "oo", "type": "vowelTeam" },
-        { "text": "k", "type": "consonant" },
-        { "text": "ie", "type": "vowelTeam" }
-      ]
+        {
+          "text": "c",
+          "type": "consonant"
+        },
+        {
+          "text": "oo",
+          "type": "vowelTeam"
+        },
+        {
+          "text": "k",
+          "type": "consonant"
+        },
+        {
+          "text": "ie",
+          "type": "vowelTeam"
+        }
+      ],
+      "pronMw": "ˈku̇-kē",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/c/cookie01.mp3",
+      "partOfSpeech": "noun"
     }
   ]
 }

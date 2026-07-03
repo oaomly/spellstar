@@ -11,7 +11,7 @@ import { usePhonicsAudio } from '@/lib/tts/usePhonicsAudio';
  * changes the emphasis; sounding-out isn't offered because it doesn't apply.
  */
 export function TrickyWordCard({ word, mode }: { word: Word; mode: LessonMode }) {
-  const { speakWord, sayLetterName, spellLetters } = usePhonicsAudio();
+  const { playWord, sayLetterName, spellLetters } = usePhonicsAudio();
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
 
   const pulse = (i: number) => {
@@ -49,10 +49,10 @@ export function TrickyWordCard({ word, mode }: { word: Word; mode: LessonMode })
         <div className="flashcard-def">{word.def}</div>
 
         <div style={{ display: 'flex', gap: 10, justifyContent: 'center', marginTop: 12, flexWrap: 'wrap' }}>
-          <button className="btn btn-primary" onClick={() => speakWord(word.word)}>
+          <button className="btn btn-primary" onClick={() => playWord(word.word, word.audioUrl)}>
             🔊 Say it
           </button>
-          <button className="btn btn-secondary" onClick={() => spellLetters(word.word)}>
+          <button className="btn btn-secondary" onClick={() => spellLetters(word.word, word.audioUrl)}>
             🔤 Spell it out
           </button>
         </div>

@@ -127,14 +127,34 @@ export function usePhonicsAudio() {
 
   const speakWord = useCallback((word: string) => tts(word, settings.rate), [tts, settings.rate]);
 
-  /** Blend: each chunk's sound in sequence, then the whole word. */
+  /**
+   * Play a whole word. Prefers the recorded dictionary audio (audioUrl) when
+   * present and the user hasn't opted into TTS; falls back to TTS otherwise or
+   * if the clip fails to load. This is the DEFAULT word pronunciation.
+   */
+  const playWord = useCallback(
+    (word: string, audioUrl?: string) => {
+      if (settings.preferTts || !audioUrl) {
+        speakWord(word);
+        return;
+      }
+      stop();
+      const a = new Audio(audioUrl);
+      audioRef.current = a;
+      a.onerror = () => speakWord(word);
+      a.play().catch(() => speakWord(word));
+    },
+    [settings.preferTts, speakWord, stop],
+  );
+
+  /** Blend: each chunk's sound in sequence, then the whole word (recorded audio). */
   const blendSounds = useCallback(
-    (chunks: PhonicsChunk[], word: string, gapMs = 320) => {
+    (chunks: PhonicsChunk[], word: string, audioUrl?: string, gapMs = 320) => {
       stop();
       let i = 0;
       const next = () => {
         if (i >= chunks.length) {
-          setTimeout(() => speakWord(word), gapMs + 120);
+          setTimeout(() => playWord(word, audioUrl), gapMs + 120);
           return;
         }
         const c = chunks[i];
@@ -143,18 +163,18 @@ export function usePhonicsAudio() {
       };
       next();
     },
-    [playChunkSound, speakWord, stop],
+    [playChunkSound, playWord, stop],
   );
 
   /** Spell out: each letter's name in sequence, then the whole word. */
   const spellLetters = useCallback(
-    (word: string, gapMs = 300) => {
+    (word: string, audioUrl?: string, gapMs = 300) => {
       stop();
       const letters = word.split('');
       let i = 0;
       const next = () => {
         if (i >= letters.length) {
-          setTimeout(() => speakWord(word), gapMs + 120);
+          setTimeout(() => playWord(word, audioUrl), gapMs + 120);
           return;
         }
         const l = letters[i];
@@ -163,8 +183,8 @@ export function usePhonicsAudio() {
       };
       next();
     },
-    [sayLetterName, speakWord, stop],
+    [sayLetterName, playWord, stop],
   );
 
-  return { playSound, playChunkSound, sayLetterName, speakWord, blendSounds, spellLetters, stop };
+  return { playSound, playChunkSound, sayLetterName, speakWord, playWord, blendSounds, spellLetters, stop };
 }

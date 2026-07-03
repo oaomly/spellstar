@@ -1,10 +1,10 @@
 'use client';
 
 import type { Word } from '@/lib/data/types';
-import { useSpeech } from '@/lib/tts/useSpeech';
+import { usePhonicsAudio } from '@/lib/tts/usePhonicsAudio';
 
 export function WordGrid({ words }: { words: Word[] }) {
-  const { speak } = useSpeech();
+  const { playWord } = usePhonicsAudio();
   return (
     <div className="words-grid">
       {words.map((w) => (
@@ -18,7 +18,7 @@ export function WordGrid({ words }: { words: Word[] }) {
             </h3>
             <p>{w.def || 'No definition added yet.'}</p>
             <div className="word-card-actions">
-              <button className="btn btn-secondary btn-sm" onClick={() => speak(w.word)}>
+              <button className="btn btn-secondary btn-sm" onClick={() => playWord(w.word, w.audioUrl)}>
                 🔊
               </button>
             </div>

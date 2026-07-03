@@ -11,6 +11,25 @@ The lesson has **two voicing modes** (toggle at the top, remembered in Settings)
   word. This is true phonics, like a phonics song.
 - **🔤 Letter names** — spells the word out by letter name (gee · ell · ay · ess · ess).
 
+### Dictionary enrichment (Merriam-Webster)
+
+Word cards can carry real data from Merriam-Webster's Elementary Dictionary: **recorded
+audio** (the default word pronunciation — TTS is the fallback), **IPA** pronunciation,
+**definition**, **example sentences**, and **part of speech**. The lesson also shows the IPA
+phoneme under each sound chunk, aligned by a letter→sound aligner (`lib/phonics/align.ts`)
+since English isn't one-letter-one-sound (`cookie` = k·ʊ·k·iː).
+
+- **Default word lists** are enriched at build time — no runtime key, nothing exposed:
+  1. Put your key in `.env.local`: `DICTIONARY_API_KEY=...` (copy `.env.local.example`).
+  2. Run `npm run enrich`. It fetches audio/pronunciation/definitions/usage and writes them
+     into `data/wordlists/**.json`. Commit the result (the key is never written to the JSON).
+- **Words parents add at runtime** use the **Look up** button in the Add-Word form, which
+  goes through the Netlify function `dictionary` (owner key in the `DICTIONARY_API_KEY`
+  Netlify env var) or a parent's own key pasted in Settings.
+
+Set `DICTIONARY_API_KEY` in Netlify (Site settings → Environment variables) to enable runtime
+lookups. As with the Vision key, it stays server-side and never ships to the browser.
+
 ### Authentic phoneme audio (optional upgrade)
 
 Browser text-to-speech can't emit *perfect* isolated phonemes, so Sounds mode ships with

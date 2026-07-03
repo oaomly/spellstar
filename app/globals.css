@@ -237,8 +237,18 @@ button {
   font-size: 34px; font-weight: 900; cursor: pointer; transition: all .15s; border: 2.5px solid;
   min-width: 54px; text-align: center; user-select: none;
 }
+.chunk { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; line-height: 1; }
 .chunk:hover { transform: translateY(-3px) scale(1.04); }
 .chunk.speaking { animation: pop .4s; }
+.chunk-ipa { font-family: var(--font-nunito-sans), 'Nunito Sans', sans-serif; font-size: 13px; font-weight: 800; opacity: .75; }
+
+/* PRONUNCIATION LINE */
+.pron-line { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 6px 0 2px; flex-wrap: wrap; }
+.pron-line .ipa { font-family: var(--font-nunito-sans), 'Nunito Sans', sans-serif; font-size: 15px; color: var(--text2); font-weight: 700; }
+.pron-line .pos { font-size: 12px; font-style: italic; color: var(--text2); }
+.mini-audio { border: none; background: var(--primary-light); color: var(--primary); border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 14px; }
+.mini-audio:hover { background: var(--primary); }
+.usage-example { font-size: 14px; color: var(--text2); font-style: italic; margin-top: 8px; }
 .chunk--vowel { color: var(--chunk-vowel); background: var(--chunk-vowel-bg); border-color: var(--chunk-vowel); }
 .chunk--consonant, .chunk--other { color: var(--chunk-consonant); background: var(--chunk-consonant-bg); border-color: var(--chunk-consonant); }
 .chunk--digraph { color: var(--chunk-digraph); background: var(--chunk-digraph-bg); border-color: var(--chunk-digraph); }

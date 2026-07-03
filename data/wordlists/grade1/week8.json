@@ -13,9 +13,24 @@
       "tricky": false,
       "chunksSource": "auto",
       "chunks": [
-        { "text": "sh", "type": "digraph" },
-        { "text": "i", "type": "vowel" },
-        { "text": "p", "type": "consonant" }
+        {
+          "text": "sh",
+          "type": "digraph"
+        },
+        {
+          "text": "i",
+          "type": "vowel"
+        },
+        {
+          "text": "p",
+          "type": "consonant"
+        }
+      ],
+      "pronMw": "ˈship",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/ship0001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "a rocket ship"
       ]
     },
     {
@@ -28,10 +43,22 @@
       "tricky": false,
       "chunksSource": "auto",
       "chunks": [
-        { "text": "fr", "type": "blend" },
-        { "text": "o", "type": "vowel" },
-        { "text": "g", "type": "consonant" }
-      ]
+        {
+          "text": "fr",
+          "type": "blend"
+        },
+        {
+          "text": "o",
+          "type": "vowel"
+        },
+        {
+          "text": "g",
+          "type": "consonant"
+        }
+      ],
+      "pronMw": "ˈfrȯg",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/f/frog0001.mp3",
+      "partOfSpeech": "noun"
     },
     {
       "id": "g1w8-rain",
@@ -43,9 +70,24 @@
       "tricky": false,
       "chunksSource": "auto",
       "chunks": [
-        { "text": "r", "type": "consonant" },
-        { "text": "ai", "type": "vowelTeam" },
-        { "text": "n", "type": "consonant" }
+        {
+          "text": "r",
+          "type": "consonant"
+        },
+        {
+          "text": "ai",
+          "type": "vowelTeam"
+        },
+        {
+          "text": "n",
+          "type": "consonant"
+        }
+      ],
+      "pronMw": "ˈrān",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/r/rain0001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "Are you going to sleep out in all this rain?"
       ]
     },
     {

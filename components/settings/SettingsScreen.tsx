@@ -9,6 +9,7 @@ export function SettingsScreen() {
   const { settings, update, hydrated } = useSettings();
   const { speak } = useSpeech();
   const [keyValue, setKeyValue] = useState('');
+  const [dictKey, setDictKey] = useState('');
 
   if (!hydrated) return null;
 
@@ -74,6 +75,16 @@ export function SettingsScreen() {
             <span className="toggle-slider" />
           </label>
         </div>
+        <div className="setting-row">
+          <div>
+            <div className="setting-label">Use computer voice</div>
+            <div className="setting-sub">Off = play the recorded dictionary audio when available (recommended)</div>
+          </div>
+          <label className="toggle">
+            <input type="checkbox" checked={settings.preferTts} onChange={(e) => update({ preferTts: e.target.checked })} />
+            <span className="toggle-slider" />
+          </label>
+        </div>
       </div>
 
       <div className="settings-section">
@@ -121,6 +132,39 @@ export function SettingsScreen() {
               onClick={() => {
                 setKeyValue('');
                 update({ visionApiKey: undefined });
+              }}
+            >
+              Remove key
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className="settings-section">
+        <h3>Word Dictionary (optional)</h3>
+        <p className="setting-sub" style={{ marginBottom: 12 }}>
+          The “Look up” button when adding a word pulls the definition, pronunciation, recorded
+          audio, and example sentences from Merriam-Webster. It works out of the box via the site’s
+          proxy; paste your own key here to use your own account instead. Stored only in this browser.
+        </p>
+        <div className="form-group" style={{ marginBottom: 8 }}>
+          <input
+            type="password"
+            value={dictKey || settings.dictionaryApiKey || ''}
+            onChange={(e) => setDictKey(e.target.value)}
+            placeholder="Paste your Merriam-Webster API key"
+          />
+        </div>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button className="btn btn-primary btn-sm" onClick={() => update({ dictionaryApiKey: dictKey.trim() || undefined })}>
+            Save key
+          </button>
+          {settings.dictionaryApiKey && (
+            <button
+              className="btn btn-danger btn-sm"
+              onClick={() => {
+                setDictKey('');
+                update({ dictionaryApiKey: undefined });
               }}
             >
               Remove key
