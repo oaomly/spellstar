@@ -9,6 +9,7 @@ import {
   PHONEME_AUDIO_BASE,
   letterName,
 } from '../phonics/graphemeSound';
+import { phonemeClipUrl, hasClips } from '../phonics/phonemeAudio';
 
 // Voices load async in Chrome; pick the best match for the chosen accent.
 function pickVoice(accent: string): SpeechSynthesisVoice | undefined {
@@ -92,9 +93,58 @@ export function usePhonicsAudio() {
     [tts, stop],
   );
 
-  /** Play the SOUND of a whole chunk. Blends (gl, st) sound out letter-by-letter. */
+  /**
+   * Play a sequence of recorded phoneme clips (authentic Wikimedia audio).
+   * In multi-phoneme sequences (blends) each clip is capped so the blend stays
+   * snappy despite trailing silence; a single clip plays in full.
+   */
+  const playClipSeq = useCallback(
+    (ipaList: string[], onEnd?: () => void) => {
+      stop();
+      const cap = ipaList.length > 1 ? 640 : 1500;
+      let i = 0;
+      const next = () => {
+        if (i >= ipaList.length) {
+          onEnd?.();
+          return;
+        }
+        const url = phonemeClipUrl(ipaList[i]);
+        i += 1;
+        if (!url) {
+          next();
+          return;
+        }
+        const a = new Audio(url);
+        audioRef.current = a;
+        let advanced = false;
+        const go = () => {
+          if (advanced) return;
+          advanced = true;
+          a.pause();
+          setTimeout(next, 70);
+        };
+        a.onended = go;
+        a.onerror = go;
+        setTimeout(go, cap);
+        a.play().catch(go);
+      };
+      next();
+    },
+    [stop],
+  );
+
+  /**
+   * Play the SOUND of a chunk. Prefers authentic recorded phoneme clips (using
+   * the chunk's aligned IPA); otherwise TTS approximation. Blends (gl, st)
+   * without clips sound out letter-by-letter.
+   */
   const playChunkSound = useCallback(
-    (chunk: PhonicsChunk, onEnd?: () => void) => {
+    (chunk: PhonicsChunk, ipa?: string | null, onEnd?: () => void) => {
+      const phonemes = ipa ? ipa.split('·').map((s) => s.trim()).filter(Boolean) : [];
+      if (hasClips(phonemes)) {
+        playClipSeq(phonemes, onEnd);
+        return;
+      }
       const key = chunk.text.toLowerCase();
       if (GRAPHEME_SOUND[key] || PHONEME_AUDIO.has(key)) {
         playSound(key, onEnd);
@@ -117,7 +167,7 @@ export function usePhonicsAudio() {
       }
       playSound(key, onEnd);
     },
-    [playSound],
+    [playSound, playClipSeq],
   );
 
   const sayLetterName = useCallback(
@@ -149,7 +199,7 @@ export function usePhonicsAudio() {
 
   /** Blend: each chunk's sound in sequence, then the whole word (recorded audio). */
   const blendSounds = useCallback(
-    (chunks: PhonicsChunk[], word: string, audioUrl?: string, gapMs = 320) => {
+    (chunks: PhonicsChunk[], chunkIpa: (string | null)[] | null, word: string, audioUrl?: string, gapMs = 320) => {
       stop();
       let i = 0;
       const next = () => {
@@ -158,8 +208,9 @@ export function usePhonicsAudio() {
           return;
         }
         const c = chunks[i];
+        const ipa = chunkIpa?.[i] ?? null;
         i += 1;
-        playChunkSound(c, () => setTimeout(next, gapMs));
+        playChunkSound(c, ipa, () => setTimeout(next, gapMs));
       };
       next();
     },

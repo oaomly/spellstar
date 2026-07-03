@@ -30,14 +30,22 @@ since English isn't one-letter-one-sound (`cookie` = k·ʊ·k·iː).
 Set `DICTIONARY_API_KEY` in Netlify (Site settings → Environment variables) to enable runtime
 lookups. As with the Vision key, it stays server-side and never ships to the browser.
 
-### Authentic phoneme audio (optional upgrade)
+### Authentic phoneme audio
 
-Browser text-to-speech can't emit *perfect* isolated phonemes, so Sounds mode ships with
-tuned TTS approximations (`s`→"sss", `a`→"aah", `b`→"buh"). To use real recorded clips
-(Jolly-Phonics style) instead: drop `<grapheme>.mp3` files into
-`public/audio/phonemes/` (e.g. `a.mp3`, `sh.mp3`, `ee.mp3`) and list those grapheme keys
-in `PHONEME_AUDIO` in `lib/phonics/graphemeSound.ts`. Playback then prefers the clip and
-falls back to TTS for any grapheme without one — no other code changes needed.
+Tapping a sound chunk plays **real recorded phoneme audio** keyed by IPA (the chunk already
+knows its IPA from the letter→sound aligner). The clips are the Wikimedia Commons IPA-chart
+recordings, bundled under `public/audio/phonemes/` — 34 phonemes covering the common
+consonants and monophthong vowels. Diphthongs/blends without a single clip fall back to the
+tuned TTS approximations.
+
+- Regenerate the set with `npm run audio` (`scripts/fetch-phoneme-audio.mjs`): it resolves the
+  Commons files, downloads them, converts OGG→MP3 (ffmpeg required), trims/normalizes, and
+  writes `data/phoneme-audio.json` + `public/audio/phonemes/CREDITS.md`.
+- **License:** the clips are **CC BY-SA 3.0**. Attribution per file is in
+  `public/audio/phonemes/CREDITS.md` — keep it when you deploy.
+- The recordings are authentic but linguist-recorded (a neutral "/s/", "/æ/"), not the warm
+  phonics-song style. To swap in a warmer licensed set, replace the MP3s (same IPA-keyed
+  filenames in `data/phoneme-audio.json`) — no code changes needed.
 
 Built with **Next.js (App Router, static export)** — no accounts, no database. It runs
 entirely in the browser (localStorage + Web Speech API), with one small Netlify function

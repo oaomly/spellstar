@@ -55,7 +55,7 @@ export function PhonicsCard({ word, mode }: { word: Word; mode: LessonMode }) {
                 title={TOOLTIP[c.type]}
                 onClick={() => {
                   pulse(i);
-                  playChunkSound(c);
+                  playChunkSound(c, chunkIpa ? chunkIpa[i] : null);
                 }}
                 aria-label={`Sound ${c.text}`}
               >
@@ -108,7 +108,7 @@ export function PhonicsCard({ word, mode }: { word: Word; mode: LessonMode }) {
           <>
             <button
               className="btn btn-primary blend-btn"
-              onClick={() => blendSounds(word.chunks, word.word, word.audioUrl)}
+              onClick={() => blendSounds(word.chunks, chunkIpa, word.word, word.audioUrl)}
             >
               🔊 Blend the sounds → whole word
             </button>
