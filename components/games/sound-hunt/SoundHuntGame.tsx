@@ -1,33 +1,45 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import type { GameResult } from '@/lib/data/types';
+import type { GameResult, PhonicsChunk } from '@/lib/data/types';
 import { useWordList } from '@/components/providers/WordListProvider';
-import { phonicsWords, allChunkTexts, shuffle } from '@/lib/gameEngine/helpers';
+import { phonicsWords, shuffle } from '@/lib/gameEngine/helpers';
+import { chunkPhonemes } from '@/lib/phonics/chunkPhonemes';
 import { GameShell } from '../shared/GameShell';
 import { ResultsScreen } from '../shared/ResultsScreen';
 import { Feedback } from '@/components/common/Feedback';
-import { useSpeech } from '@/lib/tts/useSpeech';
+import { usePhonicsAudio } from '@/lib/tts/usePhonicsAudio';
 
 interface Round {
-  answer: string;
+  chunk: PhonicsChunk;
+  ipa: string | null;
   options: string[];
 }
 
 export function SoundHuntGame() {
   const { words } = useWordList();
-  const { speak } = useSpeech();
+  const { playChunkSound } = usePhonicsAudio();
   const [seed, setSeed] = useState(0);
 
   const rounds = useMemo<Round[]>(() => {
     const pool = phonicsWords(words);
-    const allChunks = allChunkTexts(words);
-    const picks = shuffle(pool).slice(0, 6);
-    return picks.map((w) => {
-      const answer = shuffle(w.chunks)[0].text;
-      const distractors = shuffle(allChunks.filter((c) => c !== answer)).slice(0, 3);
-      return { answer, options: shuffle([answer, ...distractors]) };
+    // Collect (chunk, aligned IPA) pairs plus all distinct chunk spellings.
+    const pairs: { chunk: PhonicsChunk; ipa: string | null }[] = [];
+    const allTexts = new Set<string>();
+    pool.forEach((w) => {
+      const ipas = chunkPhonemes(w);
+      w.chunks.forEach((c, i) => {
+        allTexts.add(c.text);
+        pairs.push({ chunk: c, ipa: ipas ? ipas[i] : null });
+      });
     });
+    const texts = [...allTexts];
+    return shuffle(pairs)
+      .slice(0, 6)
+      .map((p) => {
+        const distractors = shuffle(texts.filter((t) => t !== p.chunk.text)).slice(0, 3);
+        return { chunk: p.chunk, ipa: p.ipa, options: shuffle([p.chunk.text, ...distractors]) };
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [words, seed]);
 
@@ -41,9 +53,19 @@ export function SoundHuntGame() {
   const round = rounds[q];
 
   useEffect(() => {
-    if (round) speak(round.answer);
+    if (round) playChunkSound(round.chunk, round.ipa);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [q, round?.answer]);
+  }, [q, round?.chunk.text]);
+
+  if (rounds.length === 0) {
+    return (
+      <div className="empty-state">
+        <div className="es-icon">👂</div>
+        <h3>No sounds to hunt yet</h3>
+        <p>Sound Hunt needs at least one phonics (non-tricky) word with sound chunks.</p>
+      </div>
+    );
+  }
 
   if (!round || q >= rounds.length) {
     return (
@@ -63,13 +85,15 @@ export function SoundHuntGame() {
     );
   }
 
+  const answer = round.chunk.text;
+
   const choose = (chunk: string) => {
     if (locked) return;
     setLocked(true);
     setPicked(chunk);
-    const correct = chunk === round.answer;
+    const correct = chunk === answer;
     if (correct) setScore((s) => s + 1);
-    setResults((r) => [...r, { word: round.answer, correct }]);
+    setResults((r) => [...r, { word: answer, correct }]);
     setFb({ show: true, correct });
     setTimeout(() => {
       setFb({ show: false, correct });
@@ -81,14 +105,18 @@ export function SoundHuntGame() {
 
   return (
     <GameShell title="Sound Hunt" icon="👂" score={score} progress={q / rounds.length}>
-      <p className="mc-prompt">Listen to the sound, then tap the matching chunk</p>
-      <button className="sound-play-btn" onClick={() => speak(round.answer)} aria-label="Play the sound">
+      <p className="mc-prompt">Listen to the sound, then tap the letters that make it</p>
+      <button
+        className="sound-play-btn"
+        onClick={() => playChunkSound(round.chunk, round.ipa)}
+        aria-label="Play the sound"
+      >
         🔊
       </button>
       <div className="sound-options">
         {round.options.map((opt) => {
           let cls = 'mc-option';
-          if (locked && opt === round.answer) cls += ' correct';
+          if (locked && opt === answer) cls += ' correct';
           else if (locked && opt === picked) cls += ' wrong';
           return (
             <button key={opt} className={cls} disabled={locked} onClick={() => choose(opt)}>
@@ -97,7 +125,7 @@ export function SoundHuntGame() {
           );
         })}
       </div>
-      <Feedback show={fb.show} correct={fb.correct} word={round.answer} />
+      <Feedback show={fb.show} correct={fb.correct} word={answer} />
     </GameShell>
   );
 }
