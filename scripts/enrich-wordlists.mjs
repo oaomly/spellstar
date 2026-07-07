@@ -63,9 +63,12 @@ async function lookup(word, key) {
   const data = await res.json();
   if (!Array.isArray(data) || data.length === 0 || typeof data[0] === 'string') return null;
   const target = word.toLowerCase();
-  const e =
-    data.find((x) => (x?.meta?.id ?? '').split(':')[0].replace(/\*/g, '').toLowerCase() === target) ??
-    data[0];
+  // Require an exact headword match — otherwise MW hands back a lemma (e.g.
+  // "shapes" -> "shape"), whose audio/pronunciation would be for the wrong form.
+  const e = data.find(
+    (x) => (x?.meta?.id ?? '').split(':')[0].replace(/\*/g, '').toLowerCase() === target,
+  );
+  if (!e) return null;
   const prs = e?.hwi?.prs?.[0];
   const usage = [];
   collectUsage(e?.def, usage);
