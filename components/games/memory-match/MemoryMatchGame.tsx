@@ -5,7 +5,8 @@ import { useWordList } from '@/components/providers/WordListProvider';
 import { buildQuestionSet, shuffle } from '@/lib/gameEngine/helpers';
 import { GameShell } from '../shared/GameShell';
 import { ResultsScreen } from '../shared/ResultsScreen';
-import { useSpeech } from '@/lib/tts/useSpeech';
+import { usePhonicsAudio } from '@/lib/tts/usePhonicsAudio';
+import { useFeedbackSound } from '@/lib/tts/useFeedbackSound';
 
 interface Card {
   key: string;
@@ -13,18 +14,20 @@ interface Card {
   kind: 'word' | 'pic';
   label: string;
   isImg: boolean;
+  audioUrl?: string;
 }
 
 export function MemoryMatchGame() {
   const { words } = useWordList();
-  const { speak } = useSpeech();
+  const { playWord } = usePhonicsAudio();
+  const { playCorrect } = useFeedbackSound();
   const [seed, setSeed] = useState(0);
 
   const { deck, pairCount } = useMemo(() => {
     const picks = buildQuestionSet(words, 6);
     const cards: Card[] = [];
     picks.forEach((w) => {
-      cards.push({ key: `${w.id}-w`, wordId: w.id, kind: 'word', label: w.word, isImg: false });
+      cards.push({ key: `${w.id}-w`, wordId: w.id, kind: 'word', label: w.word, isImg: false, audioUrl: w.audioUrl });
       cards.push({
         key: `${w.id}-p`,
         wordId: w.id,
@@ -64,7 +67,7 @@ export function MemoryMatchGame() {
 
   const click = (card: Card) => {
     if (busy || matched.has(card.wordId) || flipped.includes(card.key)) return;
-    if (card.kind === 'word') speak(card.label);
+    if (card.kind === 'word') playWord(card.label, card.audioUrl);
     const next = [...flipped, card.key];
     setFlipped(next);
     if (next.length === 2) {
@@ -74,6 +77,7 @@ export function MemoryMatchGame() {
       const a = deck.find((c) => c.key === aKey)!;
       const b = deck.find((c) => c.key === bKey)!;
       if (a.wordId === b.wordId) {
+        playCorrect();
         setTimeout(() => {
           setMatched((m) => new Set(m).add(a.wordId));
           setFlipped([]);

@@ -11,8 +11,6 @@ import { WordMatchGame } from './word-match/WordMatchGame';
 import { FillBlankGame } from './fill-blank/FillBlankGame';
 import { ListenWriteGame } from './listen-write/ListenWriteGame';
 import { HangmanGame } from './hangman/HangmanGame';
-import { SoundHuntGame } from './sound-hunt/SoundHuntGame';
-import { WordBuilderGame } from './word-builder/WordBuilderGame';
 import { SpeedSpellGame } from './speed-spell/SpeedSpellGame';
 import { MemoryMatchGame } from './memory-match/MemoryMatchGame';
 
@@ -23,8 +21,6 @@ const MAP: Record<GameId, React.ComponentType> = {
   'fill-blank': FillBlankGame,
   'listen-write': ListenWriteGame,
   hangman: HangmanGame,
-  'sound-hunt': SoundHuntGame,
-  'word-builder': WordBuilderGame,
   'speed-spell': SpeedSpellGame,
   'memory-match': MemoryMatchGame,
 };

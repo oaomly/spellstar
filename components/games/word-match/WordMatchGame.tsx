@@ -6,6 +6,7 @@ import { buildQuestionSet, shuffle } from '@/lib/gameEngine/helpers';
 import { GameShell } from '../shared/GameShell';
 import { ResultsScreen } from '../shared/ResultsScreen';
 import { useSpeech } from '@/lib/tts/useSpeech';
+import { useFeedbackSound } from '@/lib/tts/useFeedbackSound';
 
 export function WordMatchGame() {
   const { words } = useWordList();
@@ -14,6 +15,7 @@ export function WordMatchGame() {
   const leftCol = useMemo(() => shuffle(set), [set]);
   const rightCol = useMemo(() => shuffle(set), [set]);
   const { speak } = useSpeech();
+  const { playCorrect, playWrong } = useFeedbackSound();
 
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [matched, setMatched] = useState<Set<string>>(new Set());
@@ -50,10 +52,12 @@ export function WordMatchGame() {
       next.add(id);
       setMatched(next);
       setSelectedLeft(null);
+      if (next.size === set.length) playCorrect();
     } else {
       setWrongId(id);
       setTimeout(() => setWrongId(null), 400);
       setSelectedLeft(null);
+      playWrong();
     }
   };
 

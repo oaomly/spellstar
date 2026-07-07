@@ -9,6 +9,7 @@ import { recognizeHandwriting } from '@/lib/ocr/recognize';
 import { GameShell } from '../shared/GameShell';
 import { ResultsScreen } from '../shared/ResultsScreen';
 import { useSpeech } from '@/lib/tts/useSpeech';
+import { useFeedbackSound } from '@/lib/tts/useFeedbackSound';
 
 type Phase = 'draw' | 'checking' | 'revealed';
 
@@ -16,6 +17,7 @@ export function ListenWriteGame() {
   const { words, isCustomized } = useWordList();
   const { settings } = useSettings();
   const { speak } = useSpeech();
+  const { playCorrect, playWrong } = useFeedbackSound();
   const [seed, setSeed] = useState(0);
   const questions = useMemo(() => buildQuestionSet(words, 6), [words, seed]);
   const [q, setQ] = useState(0);
@@ -99,9 +101,14 @@ export function ListenWriteGame() {
   }
 
   const record = (correct: boolean) => {
-    if (correct) setScore((s) => s + 1);
+    if (correct) {
+      setScore((s) => s + 1);
+      playCorrect();
+    } else {
+      playWrong();
+    }
     setResults((r) => [...r, { word: current.word, correct }]);
-    setTimeout(() => setQ((n) => n + 1), 300);
+    setTimeout(() => setQ((n) => n + 1), 700);
   };
 
   const check = async () => {

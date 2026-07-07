@@ -7,13 +7,15 @@ import { buildQuestionSet } from '@/lib/gameEngine/helpers';
 import { GameShell } from '../shared/GameShell';
 import { ResultsScreen } from '../shared/ResultsScreen';
 import { Feedback } from '@/components/common/Feedback';
-import { useSpeech } from '@/lib/tts/useSpeech';
+import { usePhonicsAudio } from '@/lib/tts/usePhonicsAudio';
+import { useFeedbackSound } from '@/lib/tts/useFeedbackSound';
 
 const TIME_PER_WORD = 15;
 
 export function SpeedSpellGame() {
   const { words } = useWordList();
-  const { speak } = useSpeech();
+  const { playWord } = usePhonicsAudio();
+  const { playCorrect, playWrong } = useFeedbackSound();
   const [seed, setSeed] = useState(0);
   const questions = useMemo(() => buildQuestionSet(words, 6), [words, seed]);
   const [q, setQ] = useState(0);
@@ -32,7 +34,7 @@ export function SpeedSpellGame() {
     setValue('');
     setTime(TIME_PER_WORD);
     setResolved(false);
-    if (current) speak(current.word);
+    if (current) playWord(current.word, current.audioUrl);
     setTimeout(() => inputRef.current?.focus(), 50);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q, current?.id]);
@@ -76,7 +78,8 @@ export function SpeedSpellGame() {
     }
     setResults((r) => [...r, { word: current.word, correct }]);
     setFb({ show: true, correct });
-    speak(current.word);
+    if (correct) playCorrect();
+    else playWrong();
     setTimeout(() => {
       setFb({ show: false, correct });
       setQ((n) => n + 1);
@@ -92,7 +95,7 @@ export function SpeedSpellGame() {
   return (
     <GameShell title="Speed Spell" icon="⚡" score={score} progress={q / questions.length}>
       <p className="mc-prompt">Listen, then type the word fast!</p>
-      <button className="btn btn-secondary btn-sm" style={{ display: 'block', margin: '0 auto 12px' }} onClick={() => speak(current.word)}>
+      <button className="btn btn-secondary btn-sm" style={{ display: 'block', margin: '0 auto 12px' }} onClick={() => playWord(current.word, current.audioUrl)}>
         🔊 Hear it again
       </button>
       <div className={`speed-timer${time <= 5 ? ' low' : ''}`}>⏱️ {time}s</div>

@@ -333,6 +333,9 @@ button {
 .answer-tiles { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; min-height: 60px; margin: 16px 0; border-bottom: 2px dashed var(--border); padding-bottom: 16px; }
 .answer-tile { min-width: 52px; height: 52px; padding: 0 10px; border-radius: 12px; background: var(--yellow-light); border: 2px solid var(--yellow); font-family: var(--font-nunito), 'Nunito', sans-serif; font-size: 24px; font-weight: 900; color: var(--text); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all .2s; }
 .answer-tile:hover { background: var(--yellow); }
+.letter-tile.dragging { opacity: .3; }
+.drag-ghost { position: fixed; transform: translate(-50%, -50%); z-index: 500; pointer-events: none; box-shadow: 0 8px 22px rgba(108,99,255,.45); }
+.answer-tiles { transition: background .15s; }
 
 /* SPEED SPELL */
 .speed-timer { font-family: var(--font-nunito), 'Nunito', sans-serif; font-size: 40px; font-weight: 900; text-align: center; margin: 12px 0; }

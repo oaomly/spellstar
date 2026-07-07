@@ -7,7 +7,7 @@ import { buildQuestionSet, pickDistractors, shuffle } from '@/lib/gameEngine/hel
 import { GameShell } from '../shared/GameShell';
 import { ResultsScreen } from '../shared/ResultsScreen';
 import { Feedback } from '@/components/common/Feedback';
-import { useSpeech } from '@/lib/tts/useSpeech';
+import { useFeedbackSound } from '@/lib/tts/useFeedbackSound';
 
 export function PictureMatchGame() {
   const { words } = useWordList();
@@ -19,7 +19,7 @@ export function PictureMatchGame() {
   const [locked, setLocked] = useState(false);
   const [picked, setPicked] = useState<string | null>(null);
   const [fb, setFb] = useState<{ show: boolean; correct: boolean }>({ show: false, correct: false });
-  const { speak } = useSpeech();
+  const { playCorrect, playWrong } = useFeedbackSound();
 
   const correct = questions[q];
   const options = useMemo(() => {
@@ -54,7 +54,8 @@ export function PictureMatchGame() {
     if (isCorrect) setScore((s) => s + 1);
     setResults((r) => [...r, { word: correct.word, correct: isCorrect }]);
     setFb({ show: true, correct: isCorrect });
-    speak(correct.word);
+    if (isCorrect) playCorrect();
+    else playWrong();
     setTimeout(() => {
       setFb({ show: false, correct: isCorrect });
       setQ((n) => n + 1);

@@ -4,113 +4,85 @@
   "title": "Grade 1 · Week 8",
   "words": [
     {
-      "id": "g1w8-ship",
-      "word": "ship",
-      "def": "A large boat that travels on the sea.",
-      "sentence": "The big ship sailed across the ocean.",
+      "id": "g1w8-animal",
+      "word": "animal",
+      "def": "A living thing that can move around, such as a dog, bird, or fish.",
+      "sentence": "A dog is my favourite animal.",
       "img": "",
-      "emoji": "🚢",
+      "emoji": "🐾",
       "tricky": false,
       "chunksSource": "auto",
-      "chunks": [
-        {
-          "text": "sh",
-          "type": "digraph"
-        },
-        {
-          "text": "i",
-          "type": "vowel"
-        },
-        {
-          "text": "p",
-          "type": "consonant"
-        }
-      ],
-      "pronMw": "ˈship",
-      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/ship0001.mp3",
+      "chunks": [],
+      "pronMw": "ˈa-nə-məl",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/a/animal01.mp3",
       "partOfSpeech": "noun",
       "usage": [
-        "a rocket ship"
+        "the animals in the zoo",
+        "the birds and animals of the forest"
       ]
     },
     {
-      "id": "g1w8-frog",
-      "word": "frog",
-      "def": "A small green animal that hops and lives near water.",
-      "sentence": "The frog jumped into the pond.",
+      "id": "g1w8-shapes",
+      "word": "shapes",
+      "def": "The forms of things, like a circle, square, or triangle.",
+      "sentence": "We drew different shapes in art class.",
       "img": "",
-      "emoji": "🐸",
+      "emoji": "🔷",
       "tricky": false,
       "chunksSource": "auto",
-      "chunks": [
-        {
-          "text": "fr",
-          "type": "blend"
-        },
-        {
-          "text": "o",
-          "type": "vowel"
-        },
-        {
-          "text": "g",
-          "type": "consonant"
-        }
-      ],
-      "pronMw": "ˈfrȯg",
-      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/f/frog0001.mp3",
+      "chunks": [],
+      "pronMw": "ˈshāp",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/shape001.mp3",
+      "partOfSpeech": "verb",
+      "usage": [
+        "Shape the dough into loaves.",
+        "We shaped a winning strategy."
+      ]
+    },
+    {
+      "id": "g1w8-subtract",
+      "word": "subtract",
+      "def": "To take one number away from another.",
+      "sentence": "If you subtract two from five, you get three.",
+      "img": "",
+      "emoji": "➖",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "səb-ˈtrakt",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/subtra01.mp3",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "g1w8-brother",
+      "word": "brother",
+      "def": "A boy or man who has the same parents as you.",
+      "sentence": "My big brother helps me ride my bike.",
+      "img": "",
+      "emoji": "👦",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈbrə-t͟hər",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/b/brothe03.mp3",
       "partOfSpeech": "noun"
     },
     {
-      "id": "g1w8-rain",
-      "word": "rain",
-      "def": "Water that falls from clouds in the sky.",
-      "sentence": "We stayed inside during the rain.",
+      "id": "g1w8-insect",
+      "word": "insect",
+      "def": "A small animal with six legs, like an ant, bee, or beetle.",
+      "sentence": "An ant is a tiny insect.",
       "img": "",
-      "emoji": "🌧️",
+      "emoji": "🐜",
       "tricky": false,
       "chunksSource": "auto",
-      "chunks": [
-        {
-          "text": "r",
-          "type": "consonant"
-        },
-        {
-          "text": "ai",
-          "type": "vowelTeam"
-        },
-        {
-          "text": "n",
-          "type": "consonant"
-        }
-      ],
-      "pronMw": "ˈrān",
-      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/r/rain0001.mp3",
+      "chunks": [],
+      "pronMw": "ˈin-ˌsekt",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/i/insect01.mp3",
       "partOfSpeech": "noun",
       "usage": [
-        "Are you going to sleep out in all this rain?"
+        "Flies, bees, and lice are true insects."
       ]
-    },
-    {
-      "id": "g1w8-said",
-      "word": "said",
-      "def": "The past tense of say.",
-      "sentence": "She said hello to her friend.",
-      "img": "",
-      "emoji": "💬",
-      "tricky": true,
-      "chunksSource": "auto",
-      "chunks": []
-    },
-    {
-      "id": "g1w8-was",
-      "word": "was",
-      "def": "The past tense of is.",
-      "sentence": "It was a sunny day.",
-      "img": "",
-      "emoji": "⏳",
-      "tricky": true,
-      "chunksSource": "auto",
-      "chunks": []
     }
   ]
 }

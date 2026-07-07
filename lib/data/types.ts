@@ -95,8 +95,6 @@ export type GameId =
   | 'fill-blank'
   | 'listen-write'
   | 'hangman'
-  | 'sound-hunt'
-  | 'word-builder'
   | 'speed-spell'
   | 'memory-match';
 
