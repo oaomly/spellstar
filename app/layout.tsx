@@ -3,6 +3,7 @@ import { Nunito, Nunito_Sans } from 'next/font/google';
 import './globals.css';
 import { SettingsProvider } from '@/components/providers/SettingsProvider';
 import { TopNav } from '@/components/nav/TopNav';
+import { AudioIndicator } from '@/components/common/AudioIndicator';
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SettingsProvider>
           <TopNav />
           <main className="main">{children}</main>
+          <AudioIndicator />
         </SettingsProvider>
       </body>
     </html>

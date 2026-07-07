@@ -10,17 +10,8 @@ import {
   letterName,
 } from '../phonics/graphemeSound';
 import { phonemeClipUrl, hasClips } from '../phonics/phonemeAudio';
-
-// Voices load async in Chrome; pick the best match for the chosen accent.
-function pickVoice(accent: string): SpeechSynthesisVoice | undefined {
-  if (typeof window === 'undefined' || !window.speechSynthesis) return undefined;
-  const voices = window.speechSynthesis.getVoices();
-  return (
-    voices.find((v) => v.lang === accent) ||
-    voices.find((v) => v.lang.startsWith(accent.slice(0, 2))) ||
-    voices.find((v) => v.lang.startsWith('en'))
-  );
-}
+import { speakTTS, cancelTTS } from './speak';
+import { announceAudio } from './audioSource';
 
 /**
  * Audio for the phonics lesson. Handles both voicing modes:
@@ -34,24 +25,13 @@ export function usePhonicsAudio() {
 
   const tts = useCallback(
     (text: string, rate: number, onEnd?: () => void) => {
-      if (typeof window === 'undefined' || !window.speechSynthesis) {
-        onEnd?.();
-        return;
-      }
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = settings.accent;
-      u.rate = rate;
-      const v = pickVoice(settings.accent);
-      if (v) u.voice = v;
-      if (onEnd) u.onend = onEnd;
-      window.speechSynthesis.speak(u);
+      speakTTS(text, { lang: settings.accent, rate, onEnd });
     },
     [settings.accent],
   );
 
   const stop = useCallback(() => {
-    if (typeof window !== 'undefined' && window.speechSynthesis) window.speechSynthesis.cancel();
+    cancelTTS();
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current = null;
@@ -192,6 +172,7 @@ export function usePhonicsAudio() {
       const a = new Audio(audioUrl);
       audioRef.current = a;
       a.onerror = () => speakWord(word);
+      announceAudio('recorded');
       a.play().catch(() => speakWord(word));
     },
     [settings.preferTts, speakWord, stop],

@@ -2,6 +2,7 @@
 
 import { useCallback } from 'react';
 import { useSettings } from '@/components/providers/SettingsProvider';
+import { speakTTS } from './speak';
 
 // Spoken praise/encouragement on a correct/incorrect answer. Uses the browser
 // voice (reliable, no assets); phrases like "Well done!" aren't single dictionary
@@ -17,19 +18,7 @@ export function useFeedbackSound() {
   const { settings } = useSettings();
 
   const say = useCallback(
-    (text: string) => {
-      if (typeof window === 'undefined' || !window.speechSynthesis) return;
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = settings.accent;
-      u.rate = 1;
-      u.pitch = 1.1;
-      const voices = window.speechSynthesis.getVoices();
-      const v =
-        voices.find((x) => x.lang === settings.accent) || voices.find((x) => x.lang.startsWith('en'));
-      if (v) u.voice = v;
-      window.speechSynthesis.speak(u);
-    },
+    (text: string) => speakTTS(text, { lang: settings.accent, rate: 1, pitch: 1.1 }),
     [settings.accent],
   );
 
