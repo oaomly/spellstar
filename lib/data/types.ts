@@ -22,8 +22,10 @@ export interface Word {
   word: string;
   def: string;
   sentence: string;
-  /** Image url or base64 data URI. Optional; emoji is the fallback. */
+  /** Image url or base64 data URI (used in the lesson + manage thumbnails). Optional; emoji is the fallback. */
   img?: string;
+  /** Optional separate image shown in image-based games (Picture Match, Memory Match). Falls back to `img`. */
+  gameImg?: string;
   emoji?: string;
   /** Sight word — skips phonics segmentation, uses memorize card. */
   tricky: boolean;

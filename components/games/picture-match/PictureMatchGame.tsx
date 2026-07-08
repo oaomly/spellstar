@@ -67,7 +67,11 @@ export function PictureMatchGame() {
   return (
     <GameShell title="Picture Match" icon="🖼️" score={score} progress={q / questions.length}>
       <div className="mc-image">
-        {correct.img ? <img src={correct.img} alt="" /> : <span>{correct.emoji || '📝'}</span>}
+        {correct.gameImg || correct.img ? (
+          <img src={correct.gameImg || correct.img} alt="" />
+        ) : (
+          <span>{correct.emoji || '📝'}</span>
+        )}
       </div>
       <div className="mc-prompt">What word does this picture show?</div>
       <div className="mc-options">

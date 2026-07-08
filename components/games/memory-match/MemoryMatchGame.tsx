@@ -32,8 +32,8 @@ export function MemoryMatchGame() {
         key: `${w.id}-p`,
         wordId: w.id,
         kind: 'pic',
-        label: w.img || w.emoji || '📝',
-        isImg: !!w.img,
+        label: w.gameImg || w.img || w.emoji || '📝',
+        isImg: !!(w.gameImg || w.img),
       });
     });
     return { deck: shuffle(cards), pairCount: picks.length };
