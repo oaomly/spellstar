@@ -13,6 +13,8 @@ interface WordListContextValue {
   hydrated: boolean;
   /** Replace the full word array (forks to a custom local copy). */
   setWords: (words: Word[]) => void;
+  /** Patch list-level fields (title, publishAs) without touching the words. */
+  updateListMeta: (patch: Partial<Pick<WordList, 'title' | 'publishAs'>>) => void;
   reset: () => void;
 }
 
@@ -51,6 +53,16 @@ export function WordListProvider({
     [list, grade, week],
   );
 
+  const updateListMeta = useCallback(
+    (patch: Partial<Pick<WordList, 'title' | 'publishAs'>>) => {
+      const next: WordList = { ...list, ...patch, grade, week };
+      saveCustomList(grade, week, next);
+      setList({ ...next, updatedAt: new Date().toISOString() });
+      setIsCustomized(true);
+    },
+    [list, grade, week],
+  );
+
   const reset = useCallback(() => {
     resetToDefault(grade, week);
     setList(bundledDefault);
@@ -67,6 +79,7 @@ export function WordListProvider({
         isCustomized,
         hydrated,
         setWords,
+        updateListMeta,
         reset,
       }}
     >

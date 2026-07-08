@@ -53,6 +53,13 @@ export interface WordList {
   words: Word[];
   /** Set when a visitor customizes the list in their own browser. */
   updatedAt?: string;
+  /**
+   * For a local "Make Your Own List" draft: the grade/week the owner intends to
+   * publish this as once exported and added to the bundled defaults, e.g. { grade: 1,
+   * week: 9 } → "grade1/week9". Purely a label for the export step; doesn't change
+   * where this draft lives in the app (still saved under grade/week 'custom'/1).
+   */
+  publishAs?: { grade: number; week: number };
 }
 
 export type Accent = 'en-US' | 'en-GB' | 'en-AU' | 'en-IN';

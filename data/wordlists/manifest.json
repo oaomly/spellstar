@@ -4,15 +4,27 @@
       "grade": 1,
       "label": "Grade 1",
       "weeks": [
-        { "week": 7, "title": "Grade 1 · Week 7", "count": 5 },
-        { "week": 8, "title": "Grade 1 · Week 8", "count": 5 }
+        {
+          "week": 7,
+          "title": "Grade 1 · Week 7",
+          "count": 5
+        },
+        {
+          "week": 8,
+          "title": "Grade 1 · Week 8",
+          "count": 5
+        }
       ]
     },
     {
       "grade": "custom",
       "label": "Make Your Own List",
       "weeks": [
-        { "week": 1, "title": "My Own List", "count": 0 }
+        {
+          "week": 1,
+          "title": "My Own List",
+          "count": 0
+        }
       ]
     }
   ]

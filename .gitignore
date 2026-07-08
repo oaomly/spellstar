@@ -32,6 +32,10 @@ yarn-error.log*
 # never commit it (would put the key in git history)
 week7.html
 
+# raw photo drop folder — `npm run images` resizes/compresses these into
+# public/img/ (which IS tracked); originals stay local, never committed
+/img/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

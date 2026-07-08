@@ -11,7 +11,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "enrich": "node scripts/enrich-wordlists.mjs",
-    "audio": "node scripts/fetch-phoneme-audio.mjs"
+    "audio": "node scripts/fetch-phoneme-audio.mjs",
+    "images": "node scripts/process-images.mjs",
+    "new-week": "node scripts/new-week.mjs"
   },
   "dependencies": {
     "next": "^15.5.20",
