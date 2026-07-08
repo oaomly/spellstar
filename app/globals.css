@@ -64,6 +64,24 @@ a {
 
 button {
   font-family: inherit;
+  /* iPadOS Safari only bubbles the compatibility `click` (which React's
+     delegated onClick relies on) for elements it deems "clickable". Apple
+     Pencil taps emit only pen pointer events with no touch fallback, so
+     without these the Pencil silently does nothing while a finger works.
+     `cursor: pointer` marks the element clickable; `touch-action:
+     manipulation` makes taps immediate. */
+  cursor: pointer;
+  touch-action: manipulation;
+}
+button:disabled { cursor: default; }
+
+/* Same treatment for the clickable non-button elements (link tiles, game
+   options, memory cards, draggable letter tiles, toggles, chips, etc.). */
+a, label, [role='button'],
+.week-tile, .home-card, .exercise-card,
+.mc-option, .match-item, .memory-card,
+.fib-chip, .letter-tile, .accent-chip, .tool-btn {
+  touch-action: manipulation;
 }
 
 /* NAV */
@@ -424,7 +442,7 @@ button {
 
 /* WEEK LIST */
 .week-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
-.week-tile { background: var(--card); border-radius: var(--radius); border: 1.5px solid var(--border); padding: 24px; text-align: center; transition: all .2s; display: block; }
+.week-tile { background: var(--card); border-radius: var(--radius); border: 1.5px solid var(--border); padding: 24px; text-align: center; transition: all .2s; display: block; cursor: pointer; }
 .week-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--primary); }
 .week-tile .wt-num { font-family: var(--font-nunito), 'Nunito', sans-serif; font-size: 28px; font-weight: 900; color: var(--primary); }
 .week-tile .wt-count { font-size: 13px; color: var(--text2); margin-top: 4px; }
