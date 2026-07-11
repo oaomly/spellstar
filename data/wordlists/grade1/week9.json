@@ -1,0 +1,80 @@
+{
+  "grade": 1,
+  "week": 9,
+  "title": "Grade 1 · Week 9",
+  "words": [
+    {
+      "id": "g1w9-slipper",
+      "word": "slipper",
+      "def": "a light low shoe that is easily slipped on the foot and is made to be worn indoors",
+      "sentence": "",
+      "img": "",
+      "emoji": "🎵",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈsli-pər",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/slippe01.mp3",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "g1w9-twelve",
+      "word": "twelve",
+      "def": "being one more than eleven",
+      "sentence": "",
+      "img": "",
+      "emoji": "🌈",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈtwelv",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/t/twelve01.mp3",
+      "partOfSpeech": "adjective"
+    },
+    {
+      "id": "g1w9-finger",
+      "word": "finger",
+      "def": "one of the five divisions of the end of the hand including the thumb",
+      "sentence": "a finger of land",
+      "img": "",
+      "emoji": "🍎",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈfiŋ-gər",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/f/finger01.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "a finger of land"
+      ]
+    },
+    {
+      "id": "g1w9-igloo",
+      "word": "igloo",
+      "def": "a house often made of blocks of snow and shaped like a dome",
+      "sentence": "",
+      "img": "",
+      "emoji": "🐱",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈi-glü",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/i/igloo001.mp3",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "g1w9-morning",
+      "word": "morning",
+      "def": "the early part of the day : the time from sunrise to noon",
+      "sentence": "",
+      "img": "",
+      "emoji": "🏆",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈmȯr-niŋ",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/m/mornin01.mp3",
+      "partOfSpeech": "noun"
+    }
+  ]
+}

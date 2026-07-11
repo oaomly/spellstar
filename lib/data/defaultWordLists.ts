@@ -6,6 +6,7 @@ import type { GradeKey, WordList } from './types';
 import manifestJson from '@/data/wordlists/manifest.json';
 import g1w7 from '@/data/wordlists/grade1/week7.json';
 import g1w8 from '@/data/wordlists/grade1/week8.json';
+import g1w9 from '@/data/wordlists/grade1/week9.json';
 import customW1 from '@/data/wordlists/custom/week1.json';
 
 export interface ManifestWeek {
@@ -29,6 +30,7 @@ const REGISTRY: Record<string, WordList> = {
   '1:7': g1w7 as WordList,
   '1:8': g1w8 as WordList,
   'custom:1': customW1 as WordList,
+  '1:9': g1w9 as WordList,
 };
 
 export function getDefaultWordList(grade: GradeKey, week: number): WordList | null {

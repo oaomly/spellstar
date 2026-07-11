@@ -60,17 +60,61 @@ npm test           # phonics + storage unit tests
 npm run build      # static export into ./out
 ```
 
-## Adding your own weekly words (as the site owner)
+## Adding a new week of words (as the site owner)
 
-Each week is a JSON file under `data/wordlists/`. To add Grade 1, Week 9:
+Each week is a JSON file under `data/wordlists/`. There are two ways to add one.
 
-1. Copy `data/wordlists/grade1/week7.json` to `week9.json` and edit the words.
-   - `tricky: true` marks a sight word (skips phonics). The app auto-suggests this in the
-     in-app form, but in JSON you set it yourself.
-   - `chunks` is the phonics breakdown. You can leave it and fix it in the app's **Manage**
-     screen (the auto-splitter fills it in), or write it by hand.
-2. Add an entry for it in `data/wordlists/manifest.json` (drives which routes are built).
-3. Commit and push — Netlify rebuilds and deploys automatically.
+### Option A — the interactive tool (recommended)
+
+`npm run new-week` walks you through the whole thing and looks every word up in the dictionary
+for you. Needs `DICTIONARY_API_KEY` in `.env.local` (same key as `npm run enrich`).
+
+```bash
+npm run new-week
+```
+
+It prompts for:
+
+1. **Grade** and **week** number (e.g. `1` and `9` → publishes as `grade1/week9`), and a title.
+2. **Words**, one at a time. Type a word and press Enter to add it — it's auto-looked-up
+   (definition, example sentence, pronunciation, recorded audio, part of speech). Type
+   `remove` to drop the last word, or press Enter on a blank line when you're done.
+
+It then writes `data/wordlists/grade<G>/week<W>.json` **and** registers the week automatically in
+`data/wordlists/manifest.json` and `lib/data/defaultWordLists.ts` — no hand-editing. Review the
+result, then commit and push (see below). It does **not** deploy anything by itself.
+
+### Option B — by hand
+
+1. Copy `data/wordlists/grade1/week7.json` to e.g. `grade1/week9.json` and edit the `words`.
+   - `tricky: true` marks a sight word.
+   - Run `npm run enrich` to fill in dictionary data (audio/definition/usage), or fill it in
+     via the app's **Manage** screen.
+2. Add a matching entry in `data/wordlists/manifest.json` and an import + registry line in
+   `lib/data/defaultWordLists.ts`.
+
+### Adding pictures to words
+
+Words show an emoji by default; you can give them a real photo instead:
+
+1. Drop the image (PNG or JPG, any size) into the `img/` folder — this is a gitignored
+   *drop folder*, not what gets served.
+2. Run `npm run images`. It shrinks each one (max 640px wide) and writes a web-ready
+   **`.jpg`** into `public/img/` (the folder that is actually served and committed).
+3. In the word's JSON set `"img": "/img/<name>.jpg"` — always `.jpg`, even if you dropped a PNG.
+   (Each run prints the exact line to paste.) If you drop a file named the same as the word,
+   `npm run new-week` auto-links it for you.
+4. **Optional — a different picture in the games:** also drop `<name>_games.png`, run
+   `npm run images`, and set `"gameImg": "/img/<name>_games.jpg"`. Picture Match and Memory
+   Match use `gameImg` when present and fall back to `img` otherwise.
+
+### Publishing it
+
+```bash
+git add -A
+git commit -m "Add week 9"
+git push          # Netlify rebuilds and deploys automatically
+```
 
 ## How other parents use it
 
