@@ -176,13 +176,13 @@ export function HangmanGame() {
             </button>
           </div>
         ) : (
-          <div className="hangman-keyboard">
+          <div className="scramble-letters">
             {ALPHABET.map((l) => {
               const wrongKey = guessed.has(l);
               return (
                 <button
                   key={l}
-                  className={`hm-key${wrongKey ? ' wrong' : ''}`}
+                  className={`letter-tile${wrongKey ? ' used' : ''}`}
                   disabled={wrongKey}
                   onClick={() => guess(l)}
                 >

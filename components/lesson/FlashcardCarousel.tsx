@@ -37,13 +37,6 @@ export function FlashcardCarousel({ words }: { words: Word[] }) {
 
   return (
     <div className="flashcard-area">
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <span className={`tag ${current.tricky ? 'tag-custom' : 'tag-lesson'}`}>
-          {current.tricky ? 'Tricky Word' : 'Spelling Word'}
-        </span>
-      </div>
-      <AccentSelector />
-      <LessonCard word={current} />
       <div className="nav-arrows">
         <button onClick={prev} aria-label="Previous word">
           ←
@@ -55,6 +48,13 @@ export function FlashcardCarousel({ words }: { words: Word[] }) {
           →
         </button>
       </div>
+      <LessonCard word={current} />
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <span className={`tag ${current.tricky ? 'tag-custom' : 'tag-lesson'}`}>
+          {current.tricky ? 'Tricky Word' : 'Spelling Word'}
+        </span>
+      </div>
+      <AccentSelector />
     </div>
   );
 }

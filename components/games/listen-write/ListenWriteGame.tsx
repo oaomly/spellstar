@@ -111,6 +111,17 @@ export function ListenWriteGame() {
     setTimeout(() => setQ((n) => n + 1), 700);
   };
 
+  // "Try again" — redo the SAME word: reset to a blank canvas and re-speak it,
+  // without recording a result or advancing.
+  const retry = () => {
+    playWrong();
+    setPhase('draw');
+    setOcrText(null);
+    setNote('');
+    clearCanvas();
+    speak(current.word);
+  };
+
   const check = async () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -204,8 +215,8 @@ export function ListenWriteGame() {
                   <button className="btn btn-green" onClick={() => record(true)}>
                     ✅ I got it right
                   </button>
-                  <button className="btn btn-danger" onClick={() => record(false)}>
-                    🔁 Need practice
+                  <button className="btn btn-danger" onClick={retry}>
+                    🔁 Try again
                   </button>
                 </div>
               </>
