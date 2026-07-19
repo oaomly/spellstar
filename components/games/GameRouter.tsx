@@ -26,10 +26,11 @@ const MAP: Record<GameId, React.ComponentType> = {
 };
 
 export function GameRouter({ gameId }: { gameId: string }) {
-  const { words, grade, week, hydrated } = useWordList();
+  const { words, grade, weekPath, hydrated } = useWordList();
   const meta = getGame(gameId);
   if (!meta) return null;
   const Game = MAP[meta.id];
+  const isAll = weekPath === 'all';
 
   if (hydrated && words.length < meta.minWords) {
     return (
@@ -37,11 +38,11 @@ export function GameRouter({ gameId }: { gameId: string }) {
         <div className="es-icon">🔒</div>
         <h3>Need more words</h3>
         <p>
-          This game needs at least {meta.minWords} word{meta.minWords > 1 ? 's' : ''}. Add some in the Manage
-          tab.
+          This game needs at least {meta.minWords} word{meta.minWords > 1 ? 's' : ''}.{' '}
+          {isAll ? 'Raise the “All words” size in Settings.' : 'Add some in the Manage tab.'}
         </p>
-        <Link href={`/grade/${grade}/week/${week}/manage`} className="btn btn-primary">
-          ✏️ Manage Words
+        <Link href={isAll ? '/settings' : `/grade/${grade}/${weekPath}/manage`} className="btn btn-primary">
+          {isAll ? '⚙️ Settings' : '✏️ Manage Words'}
         </Link>
       </div>
     );

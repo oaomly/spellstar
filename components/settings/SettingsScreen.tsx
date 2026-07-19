@@ -85,6 +85,20 @@ export function SettingsScreen() {
             <span className="toggle-slider" />
           </label>
         </div>
+        <div className="setting-row">
+          <div>
+            <div className="setting-label">“All words” lesson size</div>
+            <div className="setting-sub">How many random words the 🎲 All lesson shows</div>
+          </div>
+          <input
+            type="number"
+            min={1}
+            max={50}
+            value={settings.lessonAllCount}
+            onChange={(e) => update({ lessonAllCount: Math.max(1, Number(e.target.value) || 1) })}
+            style={{ width: 72 }}
+          />
+        </div>
       </div>
 
       <div className="settings-section">
@@ -108,11 +122,12 @@ export function SettingsScreen() {
       </div>
 
       <div className="settings-section">
-        <h3>Handwriting Recognition (optional)</h3>
+        <h3>Handwriting &amp; Voice Recognition (optional)</h3>
         <p className="setting-sub" style={{ marginBottom: 12 }}>
-          Listen &amp; Write can auto-check handwriting with your own Google Vision API key. This is stored only in
-          this browser and never uploaded anywhere except directly to Google. Leave blank to use the &quot;show word
-          &amp; self-check&quot; mode.
+          Your own Google API key powers <strong>Listen &amp; Write</strong> handwriting checking (Vision API) and
+          <strong> Speed Spell</strong> voice spelling (Speech-to-Text API) — enable both APIs on the one key. It is
+          stored only in this browser and sent nowhere except directly to Google. Leave blank to use handwriting
+          self-check; Speed Spell voice then needs the site owner’s key.
         </p>
         <div className="form-group" style={{ marginBottom: 8 }}>
           <input

@@ -1,0 +1,96 @@
+{
+  "grade": 1,
+  "week": 3,
+  "title": "Grade 1 · Week 3",
+  "words": [
+    {
+      "id": "g1w3-garden",
+      "word": "garden",
+      "def": "A place where plants and flowers grow.",
+      "sentence": "We grow tomatoes in our garden.",
+      "img": "",
+      "emoji": "🌷",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈgär-dᵊn",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/g/garden01.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "a botanical garden"
+      ]
+    },
+    {
+      "id": "g1w3-book",
+      "word": "book",
+      "def": "Pages with words and pictures joined together to read.",
+      "sentence": "She read a book before bed.",
+      "img": "",
+      "emoji": "📖",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈbu̇k",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/b/book0001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "a book about birds",
+        "the books of the Bible",
+        "a book of matches"
+      ]
+    },
+    {
+      "id": "g1w3-mouth",
+      "word": "mouth",
+      "def": "The part of your face you use to eat and talk.",
+      "sentence": "He opened his mouth to sing.",
+      "img": "",
+      "emoji": "👄",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈmau̇th",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/m/mouth001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "There was a butcher who worked in the mouth of a narrow alley."
+      ]
+    },
+    {
+      "id": "g1w3-number",
+      "word": "number",
+      "def": "A word or sign that tells how many, like 1, 2, or 3.",
+      "sentence": "Seven is my favourite number.",
+      "img": "",
+      "emoji": "🔢",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈnəm-bər",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/n/number01.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "What is the number of people in the room?",
+        "… the mermaids come up in extraordinary numbers to play with their bubbles.",
+        "Tell me a number divisible by 2."
+      ]
+    },
+    {
+      "id": "g1w3-mother",
+      "word": "mother",
+      "def": "A woman who has a child.",
+      "sentence": "My mother makes the best pancakes.",
+      "img": "",
+      "emoji": "👩",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈmə-t͟hər",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/m/mother01.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "Necessity is the mother of invention."
+      ]
+    }
+  ]
+}

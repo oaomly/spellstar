@@ -79,6 +79,8 @@ export interface Settings {
   preferTts: boolean;
   /** Soft client-side edit gate. null = no PIN set. Replaces hardcoded 'SpellABC'. */
   editPin: string | null;
+  /** How many random words the "All words" lesson picks across every week. */
+  lessonAllCount: number;
   /** A parent's OWN Google Vision key, localStorage-only, never bundled. */
   visionApiKey?: string;
   /** A parent's OWN Merriam-Webster key for word lookups, localStorage-only. */
@@ -95,6 +97,7 @@ export const DEFAULT_SETTINGS: Settings = {
   lessonMode: 'sounds',
   preferTts: false,
   editPin: null,
+  lessonAllCount: 5,
 };
 
 export type GameId =

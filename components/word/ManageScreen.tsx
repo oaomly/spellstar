@@ -3,14 +3,25 @@
 import { useEffect, useState } from 'react';
 import type { Word, WordList } from '@/lib/data/types';
 import { useWordList } from '@/components/providers/WordListProvider';
+import { useSettings } from '@/components/providers/SettingsProvider';
 import { useEditGate } from '@/lib/pin/useEditGate';
 import { WordForm } from './WordForm';
 
 export function ManageScreen() {
   const { grade, list, words, setWords, updateListMeta, reset, isCustomized, hydrated } = useWordList();
+  const { settings } = useSettings();
   const { requirePin } = useEditGate();
   const [editing, setEditing] = useState<Word | null>(null);
   const [showForm, setShowForm] = useState(false);
+  const [unlocked, setUnlocked] = useState(false);
+
+  // Screen-level gate: if a parent PIN is set, the ENTIRE Manage screen stays
+  // locked (words hidden, nothing editable) until the correct PIN is entered.
+  // No PIN set → open. A wrong PIN leaves it locked.
+  useEffect(() => {
+    if (hydrated && !settings.editPin) setUnlocked(true);
+  }, [hydrated, settings.editPin]);
+  const unlock = () => requirePin(() => setUnlocked(true));
 
   const isDraft = grade === 'custom';
   const [levelTitle, setLevelTitle] = useState(list.title ?? '');
@@ -23,15 +34,14 @@ export function ManageScreen() {
     setPublishWeek(String(list.publishAs?.week ?? ''));
   }, [list.title, list.publishAs?.grade, list.publishAs?.week]);
 
-  const saveLevelInfo = () =>
-    requirePin(() => {
-      const g = Number(publishGrade);
-      const w = Number(publishWeek);
-      updateListMeta({
-        title: levelTitle.trim() || undefined,
-        publishAs: g > 0 && w > 0 ? { grade: g, week: w } : undefined,
-      });
+  const saveLevelInfo = () => {
+    const g = Number(publishGrade);
+    const w = Number(publishWeek);
+    updateListMeta({
+      title: levelTitle.trim() || undefined,
+      publishAs: g > 0 && w > 0 ? { grade: g, week: w } : undefined,
     });
+  };
 
   const exportJson = () => {
     const g = Number(publishGrade) || 1;
@@ -51,20 +61,18 @@ export function ManageScreen() {
     URL.revokeObjectURL(url);
   };
 
-  const openAdd = () => requirePin(() => { setEditing(null); setShowForm(true); });
-  const openEdit = (w: Word) => requirePin(() => { setEditing(w); setShowForm(true); });
+  const openAdd = () => { setEditing(null); setShowForm(true); };
+  const openEdit = (w: Word) => { setEditing(w); setShowForm(true); };
 
-  const remove = (id: string) =>
-    requirePin(() => {
-      if (window.confirm('Remove this word?')) setWords(words.filter((w) => w.id !== id));
-    });
+  const remove = (id: string) => {
+    if (window.confirm('Remove this word?')) setWords(words.filter((w) => w.id !== id));
+  };
 
-  const doReset = () =>
-    requirePin(() => {
-      if (window.confirm('Reset to the default list? Your custom words for this week will be removed.')) {
-        reset();
-      }
-    });
+  const doReset = () => {
+    if (window.confirm('Reset to the default list? Your custom words for this week will be removed.')) {
+      reset();
+    }
+  };
 
   const save = (word: Word) => {
     const exists = words.some((w) => w.id === word.id);
@@ -72,6 +80,21 @@ export function ManageScreen() {
     setShowForm(false);
     setEditing(null);
   };
+
+  if (!hydrated) return null;
+
+  if (!unlocked) {
+    return (
+      <div className="empty-state">
+        <div className="es-icon">🔒</div>
+        <h3>Locked</h3>
+        <p>Enter the parent PIN to manage words.</p>
+        <button className="btn btn-primary" onClick={unlock}>
+          🔓 Unlock
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div>

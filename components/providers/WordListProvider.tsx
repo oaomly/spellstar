@@ -3,10 +3,14 @@
 import { createContext, useContext, useEffect, useState, useCallback, type ReactNode } from 'react';
 import type { GradeKey, Word, WordList } from '@/lib/data/types';
 import { resolveWordList, saveCustomList, resetToDefault } from '@/lib/storage/wordListStorage';
+import { shuffle } from '@/lib/gameEngine/helpers';
+import { useSettings } from '@/components/providers/SettingsProvider';
 
 interface WordListContextValue {
   grade: GradeKey;
   week: number;
+  /** Path segment for hrefs: `week/${week}` normally, or `all` in All-words mode. */
+  weekPath: string;
   list: WordList;
   words: Word[];
   isCustomized: boolean;
@@ -74,12 +78,62 @@ export function WordListProvider({
       value={{
         grade,
         week,
+        weekPath: `week/${week}`,
         list,
         words: list.words,
         isCustomized,
         hydrated,
         setWords,
         updateListMeta,
+        reset,
+      }}
+    >
+      {children}
+    </WordListContext.Provider>
+  );
+}
+
+/**
+ * Provider for the "All words" mode: samples `settings.lessonAllCount` random
+ * words from every week of the grade, once, and exposes them through the same
+ * useWordList() context so the lesson and games work unchanged. Sampling happens
+ * client-side (after mount) to avoid a static-export hydration mismatch.
+ */
+export function AllWordsProvider({
+  grade,
+  allWords,
+  children,
+}: {
+  grade: GradeKey;
+  allWords: Word[];
+  children: ReactNode;
+}) {
+  const { settings } = useSettings();
+  const n = Math.max(1, Math.min(settings.lessonAllCount ?? 5, allWords.length || 1));
+  const [seed, setSeed] = useState(0);
+  const [words, setWords] = useState<Word[]>([]);
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setWords(shuffle(allWords).slice(0, n));
+    setHydrated(true);
+  }, [allWords, n, seed]);
+
+  const noop = useCallback(() => {}, []);
+  const reset = useCallback(() => setSeed((s) => s + 1), []);
+
+  return (
+    <WordListContext.Provider
+      value={{
+        grade,
+        week: 0,
+        weekPath: 'all',
+        list: { grade, week: 0, words },
+        words,
+        isCustomized: false,
+        hydrated,
+        setWords: noop,
+        updateListMeta: noop,
         reset,
       }}
     >

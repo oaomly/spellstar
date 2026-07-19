@@ -1,0 +1,92 @@
+{
+  "grade": 1,
+  "week": 5,
+  "title": "Grade 1 · Week 5",
+  "words": [
+    {
+      "id": "g1w5-line",
+      "word": "line",
+      "def": "A long thin straight mark.",
+      "sentence": "Draw a line under your name.",
+      "img": "",
+      "emoji": "📏",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈlīn",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/l/line0001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "fishing lines",
+        "Hang your clothes on the line.",
+        "the town line"
+      ]
+    },
+    {
+      "id": "g1w5-root",
+      "word": "root",
+      "def": "The part of a plant that grows under the ground.",
+      "sentence": "The tree's root goes deep into the soil.",
+      "img": "",
+      "emoji": "🌿",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈrüt",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/r/root0007.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "The tooth's root is anchored in bone.",
+        "Money is the root of all evil.",
+        "They have roots in the community."
+      ]
+    },
+    {
+      "id": "g1w5-pencil",
+      "word": "pencil",
+      "def": "A tool you use to write or draw.",
+      "sentence": "She sharpened her pencil before the test.",
+      "img": "",
+      "emoji": "✏️",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈpen-səl",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/p/pencel01.mp3",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "g1w5-family",
+      "word": "family",
+      "def": "The people you live with, like parents and children.",
+      "sentence": "My family eats dinner together.",
+      "img": "",
+      "emoji": "👨‍👩‍👧",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈfa-mə-lē",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/f/family01.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "You resemble your mother's side of the family.",
+        "a family of languages",
+        "Domestic cats, lions, and tigers are some of the members of the cat family."
+      ]
+    },
+    {
+      "id": "g1w5-monday",
+      "word": "monday",
+      "def": "The first day of the week after the weekend.",
+      "sentence": "We go back to school on Monday.",
+      "img": "",
+      "emoji": "📅",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈmən-ˌdā",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/m/monday01.mp3",
+      "partOfSpeech": "noun"
+    }
+  ]
+}

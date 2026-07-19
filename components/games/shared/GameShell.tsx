@@ -18,11 +18,11 @@ export function GameShell({
   progress: number;
   children: ReactNode;
 }) {
-  const { grade, week } = useWordList();
+  const { grade, weekPath } = useWordList();
   return (
     <div className="game-area">
       <div className="game-header">
-        <Link href={`/grade/${grade}/week/${week}/games`} className="btn btn-secondary btn-sm">
+        <Link href={`/grade/${grade}/${weekPath}/games`} className="btn btn-secondary btn-sm">
           ← Back
         </Link>
         <h2>

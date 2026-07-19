@@ -1,0 +1,87 @@
+{
+  "grade": 1,
+  "week": 4,
+  "title": "Grade 1 · Week 4",
+  "words": [
+    {
+      "id": "g1w4-cat",
+      "word": "cat",
+      "def": "A small furry animal that says meow.",
+      "sentence": "The cat chased a little mouse.",
+      "img": "",
+      "emoji": "🐱",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈkat",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/c/cat00001.mp3",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "g1w4-cake",
+      "word": "cake",
+      "def": "A sweet food baked for parties and birthdays.",
+      "sentence": "We ate chocolate cake at the party.",
+      "img": "",
+      "emoji": "🍰",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈkāk",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/c/cake0001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "chocolate cake",
+        "a crab cake",
+        "rice cakes"
+      ]
+    },
+    {
+      "id": "g1w4-circle",
+      "word": "circle",
+      "def": "A perfectly round shape.",
+      "sentence": "She drew a circle around the answer.",
+      "img": "",
+      "emoji": "⭕",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈsər-kəl",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/c/circle01.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "We gathered in a circle around the fireplace.",
+        "The wheel has come full circle.",
+        "a reading circle"
+      ]
+    },
+    {
+      "id": "g1w4-robot",
+      "word": "robot",
+      "def": "A machine that can move and do jobs.",
+      "sentence": "The robot cleaned the whole floor.",
+      "img": "",
+      "emoji": "🤖",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈrō-ˌbät",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/r/robot001.mp3",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "g1w4-banana",
+      "word": "banana",
+      "def": "A long yellow fruit.",
+      "sentence": "He peeled a banana for a snack.",
+      "img": "",
+      "emoji": "🍌",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "bə-ˈna-nə",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/b/banana01.mp3",
+      "partOfSpeech": "noun"
+    }
+  ]
+}

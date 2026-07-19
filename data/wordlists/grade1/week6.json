@@ -1,0 +1,155 @@
+{
+  "grade": 1,
+  "week": 6,
+  "title": "Grade 1 · Week 6",
+  "words": [
+    {
+      "id": "g1w6-glass",
+      "word": "glass",
+      "def": "A hard, clear material used to make windows and cups; or a container for drinking.",
+      "sentence": "She poured cold water into the glass.",
+      "img": "",
+      "emoji": "🥛",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [
+        {
+          "text": "gl",
+          "type": "blend"
+        },
+        {
+          "text": "a",
+          "type": "vowel"
+        },
+        {
+          "text": "ss",
+          "type": "consonant"
+        }
+      ],
+      "pronMw": "ˈglas",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/g/glass001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "a glass of milk"
+      ]
+    },
+    {
+      "id": "g1w6-plus",
+      "word": "plus",
+      "def": "The sign (+) that means to add; or an extra amount of something.",
+      "sentence": "Two plus three equals five.",
+      "img": "",
+      "emoji": "➕",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [
+        {
+          "text": "pl",
+          "type": "blend"
+        },
+        {
+          "text": "u",
+          "type": "vowel"
+        },
+        {
+          "text": "s",
+          "type": "consonant"
+        }
+      ],
+      "pronMw": "ˈpləs",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/p/plus0001.mp3",
+      "partOfSpeech": "adjective",
+      "usage": [
+        "Maybe she thought I deserved at least a B plus."
+      ]
+    },
+    {
+      "id": "g1w6-star",
+      "word": "star",
+      "def": "A bright ball of burning gas seen in the night sky; or a shape with points.",
+      "sentence": "A bright star shone in the dark sky.",
+      "img": "",
+      "emoji": "⭐",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [
+        {
+          "text": "st",
+          "type": "blend"
+        },
+        {
+          "text": "ar",
+          "type": "rControlled"
+        }
+      ],
+      "pronMw": "ˈstär",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/star0001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "a movie star",
+        "She was born under a lucky star."
+      ]
+    },
+    {
+      "id": "g1w6-sun",
+      "word": "sun",
+      "def": "The bright star at the center of our solar system that gives us light and heat.",
+      "sentence": "The sun rises in the east every morning.",
+      "img": "",
+      "emoji": "☀️",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [
+        {
+          "text": "s",
+          "type": "consonant"
+        },
+        {
+          "text": "u",
+          "type": "vowel"
+        },
+        {
+          "text": "n",
+          "type": "consonant"
+        }
+      ],
+      "pronMw": "ˈsən",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/sun00001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "I'm going outside to get some sun."
+      ]
+    },
+    {
+      "id": "g1w6-cookie",
+      "word": "cookie",
+      "def": "A small, sweet baked treat, usually flat and round.",
+      "sentence": "He ate a chocolate chip cookie after lunch.",
+      "img": "",
+      "emoji": "🍪",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [
+        {
+          "text": "c",
+          "type": "consonant"
+        },
+        {
+          "text": "oo",
+          "type": "vowelTeam"
+        },
+        {
+          "text": "k",
+          "type": "consonant"
+        },
+        {
+          "text": "ie",
+          "type": "vowelTeam"
+        }
+      ],
+      "pronMw": "ˈku̇-kē",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/c/cookie01.mp3",
+      "partOfSpeech": "noun"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "grade": 1,
+  "week": 1,
+  "title": "Grade 1 · Week 1",
+  "words": [
+    {
+      "id": "g1w1-baby",
+      "word": "baby",
+      "def": "A very young child.",
+      "sentence": "The baby slept in her crib.",
+      "img": "",
+      "emoji": "👶",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈbā-bē",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/b/baby0001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "After all, Meg, we aren't … kids any more. Why do you always act like such a baby?"
+      ]
+    },
+    {
+      "id": "g1w1-head",
+      "word": "head",
+      "def": "The top part of your body, where your face is.",
+      "sentence": "He wore a hat on his head.",
+      "img": "",
+      "emoji": "🧑",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈhed",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/h/head0001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "Mom has a good head for figures.",
+        "He kept his head during the emergency.",
+        "Count heads to make sure everyone is here."
+      ]
+    },
+    {
+      "id": "g1w1-seven",
+      "word": "seven",
+      "def": "The number that comes after six.",
+      "sentence": "There are seven days in a week.",
+      "img": "",
+      "emoji": "7️⃣",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈse-vən",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/seven001.mp3",
+      "partOfSpeech": "adjective"
+    },
+    {
+      "id": "g1w1-plant",
+      "word": "plant",
+      "def": "A living thing that grows in the ground, like a flower or a tree.",
+      "sentence": "We water the plant every day.",
+      "img": "",
+      "emoji": "🌱",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈplant",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/p/plant001.mp3",
+      "partOfSpeech": "verb",
+      "usage": [
+        "We'll plant seeds in the spring.",
+        "plant a garden",
+        "They planted posts for a fence."
+      ]
+    },
+    {
+      "id": "g1w1-toy",
+      "word": "toy",
+      "def": "A thing that children play with.",
+      "sentence": "Her favourite toy is a teddy bear.",
+      "img": "",
+      "emoji": "🧸",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈtȯi",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/t/toy00001.mp3",
+      "partOfSpeech": "noun"
+    }
+  ]
+}

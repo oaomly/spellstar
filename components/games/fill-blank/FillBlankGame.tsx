@@ -10,14 +10,21 @@ import { Feedback } from '@/components/common/Feedback';
 import { useSpeech } from '@/lib/tts/useSpeech';
 import { useFeedbackSound } from '@/lib/tts/useFeedbackSound';
 
+function escapeRe(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Split the word's own sentence (from JSON) around the target word so it can be
+// blanked out. Tolerates a common suffix in the sentence (plural/tense) so e.g.
+// "We planted seeds" still blanks for the word "plant". Falls back to the plain
+// sentence with a trailing blank if the word truly isn't present.
 function blankSentence(w: Word): [string, string] {
-  const s = w.sentence || `The word is ____.`;
-  const re = new RegExp(`\\b${w.word}\\b`, 'i');
-  if (re.test(s)) {
-    const [before, after] = s.split(re);
-    return [before, after];
-  }
-  return [`${s}  (Which word fits?) `, ''];
+  const s = (w.sentence || '').trim();
+  if (!s) return ['Which word fits here? ', ''];
+  const re = new RegExp(`\\b${escapeRe(w.word)}(?:s|es|ies|ing|ed|d)?\\b`, 'i');
+  const m = re.exec(s);
+  if (m) return [s.slice(0, m.index), s.slice(m.index + m[0].length)];
+  return [s.replace(/[.!?]\s*$/, ''), ' ____.'];
 }
 
 export function FillBlankGame() {

@@ -1,0 +1,89 @@
+{
+  "grade": 1,
+  "week": 2,
+  "title": "Grade 1 · Week 2",
+  "words": [
+    {
+      "id": "g1w2-bag",
+      "word": "bag",
+      "def": "A soft container used to carry things.",
+      "sentence": "She put her books in her bag.",
+      "img": "",
+      "emoji": "🎒",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈbag",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/b/bag00001.mp3",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "g1w2-hand",
+      "word": "hand",
+      "def": "The part of your body at the end of your arm, with fingers.",
+      "sentence": "He raised his hand to ask a question.",
+      "img": "",
+      "emoji": "✋",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈhand",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/h/hand0001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "I gave her a hand loading the truck.",
+        "The fort is in the hands of the enemy.",
+        "On the one hand we could stay. On the other hand we could go."
+      ]
+    },
+    {
+      "id": "g1w2-child",
+      "word": "child",
+      "def": "A young boy or girl.",
+      "sentence": "Every child in the class got a sticker.",
+      "img": "",
+      "emoji": "🧒",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈchīld",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/c/child001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "My children are grown now."
+      ]
+    },
+    {
+      "id": "g1w2-flower",
+      "word": "flower",
+      "def": "The colourful part of a plant.",
+      "sentence": "He picked a pretty flower for his mum.",
+      "img": "",
+      "emoji": "🌸",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈflau̇-ər",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/f/flower01.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "in full flower",
+        "in the flower of youth"
+      ]
+    },
+    {
+      "id": "g1w2-eleven",
+      "word": "eleven",
+      "def": "The number that comes after ten.",
+      "sentence": "She has eleven candles on her cake.",
+      "img": "",
+      "emoji": "🔢",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "i-ˈle-vən",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/e/eleven01.mp3",
+      "partOfSpeech": "noun"
+    }
+  ]
+}

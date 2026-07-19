@@ -4,152 +4,88 @@
   "title": "Grade 1 · Week 7",
   "words": [
     {
-      "id": "g1w7-glass",
-      "word": "glass",
-      "def": "A hard, clear material used to make windows and cups; or a container for drinking.",
-      "sentence": "She poured cold water into the glass.",
-      "img": "",
-      "emoji": "🥛",
+      "id": "g1w7-animal",
+      "word": "animal",
+      "def": "A living thing that can move around, such as a dog, bird, or fish.",
+      "sentence": "A dog is my favourite animal.",
+      "img": "/img/animal.jpg",
+      "gameImg": "/img/animal_games.jpg",
+      "emoji": "🐾",
       "tricky": false,
       "chunksSource": "auto",
-      "chunks": [
-        {
-          "text": "gl",
-          "type": "blend"
-        },
-        {
-          "text": "a",
-          "type": "vowel"
-        },
-        {
-          "text": "ss",
-          "type": "consonant"
-        }
-      ],
-      "pronMw": "ˈglas",
-      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/g/glass001.mp3",
+      "chunks": [],
+      "pronMw": "ˈa-nə-məl",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/a/animal01.mp3",
       "partOfSpeech": "noun",
       "usage": [
-        "a glass of milk"
+        "the animals in the zoo",
+        "the birds and animals of the forest"
       ]
     },
     {
-      "id": "g1w7-plus",
-      "word": "plus",
-      "def": "The sign (+) that means to add; or an extra amount of something.",
-      "sentence": "Two plus three equals five.",
-      "img": "",
-      "emoji": "➕",
+      "id": "g1w7-shapes",
+      "word": "shapes",
+      "def": "The forms of things, like a circle, square, or triangle.",
+      "sentence": "We drew different shapes in art class.",
+      "img": "/img/shapes.jpg",
+      "gameImg": "/img/shapes_games.jpg",
+      "emoji": "🔷",
       "tricky": false,
       "chunksSource": "auto",
-      "chunks": [
-        {
-          "text": "pl",
-          "type": "blend"
-        },
-        {
-          "text": "u",
-          "type": "vowel"
-        },
-        {
-          "text": "s",
-          "type": "consonant"
-        }
-      ],
-      "pronMw": "ˈpləs",
-      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/p/plus0001.mp3",
-      "partOfSpeech": "adjective",
-      "usage": [
-        "Maybe she thought I deserved at least a B plus."
-      ]
-    },
-    {
-      "id": "g1w7-star",
-      "word": "star",
-      "def": "A bright ball of burning gas seen in the night sky; or a shape with points.",
-      "sentence": "A bright star shone in the dark sky.",
-      "img": "",
-      "emoji": "⭐",
-      "tricky": false,
-      "chunksSource": "auto",
-      "chunks": [
-        {
-          "text": "st",
-          "type": "blend"
-        },
-        {
-          "text": "ar",
-          "type": "rControlled"
-        }
-      ],
-      "pronMw": "ˈstär",
-      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/star0001.mp3",
+      "chunks": [],
+      "pronMw": "ˈshāps",
       "partOfSpeech": "noun",
       "usage": [
-        "a movie star",
-        "She was born under a lucky star."
+        "Circles, squares, and triangles are shapes."
       ]
     },
     {
-      "id": "g1w7-sun",
-      "word": "sun",
-      "def": "The bright star at the center of our solar system that gives us light and heat.",
-      "sentence": "The sun rises in the east every morning.",
-      "img": "",
-      "emoji": "☀️",
+      "id": "g1w7-subtract",
+      "word": "subtract",
+      "def": "To take one number away from another.",
+      "sentence": "If you subtract two from five, you get three.",
+      "img": "/img/subtract.jpg",
+      "gameImg": "/img/subtract_games.jpg",
+      "emoji": "➖",
       "tricky": false,
       "chunksSource": "auto",
-      "chunks": [
-        {
-          "text": "s",
-          "type": "consonant"
-        },
-        {
-          "text": "u",
-          "type": "vowel"
-        },
-        {
-          "text": "n",
-          "type": "consonant"
-        }
-      ],
-      "pronMw": "ˈsən",
-      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/sun00001.mp3",
-      "partOfSpeech": "noun",
-      "usage": [
-        "I'm going outside to get some sun."
-      ]
+      "chunks": [],
+      "pronMw": "səb-ˈtrakt",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/subtra01.mp3",
+      "partOfSpeech": "verb"
     },
     {
-      "id": "g1w7-cookie",
-      "word": "cookie",
-      "def": "A small, sweet baked treat, usually flat and round.",
-      "sentence": "He ate a chocolate chip cookie after lunch.",
-      "img": "",
-      "emoji": "🍪",
+      "id": "g1w7-brother",
+      "word": "brother",
+      "def": "A boy or man who has the same parents as you.",
+      "sentence": "My big brother helps me ride my bike.",
+      "img": "/img/brother.jpg",
+      "gameImg": "/img/brother_games.jpg",
+      "emoji": "👦",
       "tricky": false,
       "chunksSource": "auto",
-      "chunks": [
-        {
-          "text": "c",
-          "type": "consonant"
-        },
-        {
-          "text": "oo",
-          "type": "vowelTeam"
-        },
-        {
-          "text": "k",
-          "type": "consonant"
-        },
-        {
-          "text": "ie",
-          "type": "vowelTeam"
-        }
-      ],
-      "pronMw": "ˈku̇-kē",
-      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/c/cookie01.mp3",
+      "chunks": [],
+      "pronMw": "ˈbrə-t͟hər",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/b/brothe03.mp3",
       "partOfSpeech": "noun"
+    },
+    {
+      "id": "g1w7-insect",
+      "word": "insect",
+      "def": "A small animal with six legs, like an ant, bee, or beetle.",
+      "sentence": "An ant is a tiny insect.",
+      "img": "/img/insect.jpg",
+      "gameImg": "/img/insect_games.jpg",
+      "emoji": "🐜",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈin-ˌsekt",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/i/insect01.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "Flies, bees, and lice are true insects."
+      ]
     }
   ]
 }

@@ -5,8 +5,8 @@ import { useWordList } from '@/components/providers/WordListProvider';
 import { GAMES } from '@/lib/gameEngine/registry';
 
 export function GameMenu() {
-  const { words, grade, week } = useWordList();
-  const base = `/grade/${grade}/week/${week}/games`;
+  const { words, grade, weekPath } = useWordList();
+  const base = `/grade/${grade}/${weekPath}/games`;
 
   return (
     <div>

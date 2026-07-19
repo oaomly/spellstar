@@ -16,7 +16,9 @@ export default function HomePage() {
         <h2>Pick a grade</h2>
       </div>
       <div className="home-cards">
-        {manifest.grades.map((g) => (
+        {manifest.grades
+          .filter((g) => g.grade !== 'custom')
+          .map((g) => (
           <Link key={String(g.grade)} href={`/grade/${g.grade}`} className="home-card">
             <div
               className="card-icon"

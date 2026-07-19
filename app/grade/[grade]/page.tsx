@@ -21,6 +21,14 @@ export default async function GradePage({ params }: { params: Promise<{ grade: s
         <h2>{getGradeLabel(gradeEntry.grade)}</h2>
       </div>
       <div className="week-list">
+        {gradeEntry.grade !== 'custom' && (
+          <Link href={`/grade/${grade}/all`} className="week-tile">
+            <div className="wt-num">🎲 All</div>
+            <div className="wt-count">
+              <span className="tag tag-lesson">Random words</span>
+            </div>
+          </Link>
+        )}
         {gradeEntry.weeks.map((w) => (
           <WeekTile key={w.week} grade={grade} week={w.week} title={w.title} count={w.count} />
         ))}
