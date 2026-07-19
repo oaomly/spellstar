@@ -13,6 +13,7 @@ import { ListenWriteGame } from './listen-write/ListenWriteGame';
 import { HangmanGame } from './hangman/HangmanGame';
 import { SpeedSpellGame } from './speed-spell/SpeedSpellGame';
 import { MemoryMatchGame } from './memory-match/MemoryMatchGame';
+import { FingerMatchGame } from './finger-match/FingerMatchGame';
 
 const MAP: Record<GameId, React.ComponentType> = {
   'picture-match': PictureMatchGame,
@@ -23,6 +24,7 @@ const MAP: Record<GameId, React.ComponentType> = {
   hangman: HangmanGame,
   'speed-spell': SpeedSpellGame,
   'memory-match': MemoryMatchGame,
+  'finger-match': FingerMatchGame,
 };
 
 export function GameRouter({ gameId }: { gameId: string }) {

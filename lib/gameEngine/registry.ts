@@ -20,6 +20,7 @@ export const GAMES: GameMeta[] = [
   { id: 'hangman', title: 'Hangman', icon: '🪤', desc: 'Guess the word letter by letter', minWords: 1 },
   { id: 'speed-spell', title: 'Speed Spell', icon: '⚡', desc: 'Type the word before time runs out', minWords: 1 },
   { id: 'memory-match', title: 'Memory Match', icon: '🃏', desc: 'Flip cards to match word and picture', minWords: 2 },
+  { id: 'finger-match', title: 'Finger Match', icon: '👆', desc: 'Point with your finger (camera) to match words to pictures', minWords: 2 },
 ];
 
 export function getGame(id: string): GameMeta | undefined {

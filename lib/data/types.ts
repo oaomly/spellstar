@@ -108,7 +108,8 @@ export type GameId =
   | 'listen-write'
   | 'hangman'
   | 'speed-spell'
-  | 'memory-match';
+  | 'memory-match'
+  | 'finger-match';
 
 export interface GameResult {
   word: string;
