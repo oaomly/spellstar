@@ -12,7 +12,9 @@
         { "week": 6, "title": "Grade 1 · Week 6", "count": 5 },
         { "week": 7, "title": "Grade 1 · Week 7", "count": 5 },
         { "week": 8, "title": "Grade 1 · Week 8", "count": 5 },
-        { "week": 9, "title": "Grade 1 · Week 9", "count": 5 }
+        { "week": 9, "title": "Grade 1 · Week 9", "count": 5 },
+        { "week": 10, "title": "Grade 1 · Week 10", "count": 5 },
+        { "week": 11, "title": "Grade 1 · Week 11", "count": 10 }
       ]
     },
     {

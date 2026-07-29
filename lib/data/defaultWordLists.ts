@@ -13,6 +13,8 @@ import g1w6 from '@/data/wordlists/grade1/week6.json';
 import g1w7 from '@/data/wordlists/grade1/week7.json';
 import g1w8 from '@/data/wordlists/grade1/week8.json';
 import g1w9 from '@/data/wordlists/grade1/week9.json';
+import g1w10 from '@/data/wordlists/grade1/week10.json';
+import g1w11 from '@/data/wordlists/grade1/week11.json';
 import customW1 from '@/data/wordlists/custom/week1.json';
 
 export interface ManifestWeek {
@@ -42,6 +44,8 @@ const REGISTRY: Record<string, WordList> = {
   '1:7': g1w7 as WordList,
   '1:8': g1w8 as WordList,
   '1:9': g1w9 as WordList,
+  '1:10': g1w10 as WordList,
+  '1:11': g1w11 as WordList,
   'custom:1': customW1 as WordList,
 };
 

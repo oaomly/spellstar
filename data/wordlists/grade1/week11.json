@@ -1,0 +1,171 @@
+{
+  "grade": 1,
+  "week": 11,
+  "title": "Grade 1 · Week 11",
+  "words": [
+    {
+      "id": "g1w11-man-made",
+      "word": "man-made",
+      "def": "Made by people, not by nature.",
+      "sentence": "A plastic cup is a man-made thing.",
+      "img": "",
+      "emoji": "🏗️",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈman-ˈmād",
+      "partOfSpeech": "adjective",
+      "usage": [
+        "a man-made lake"
+      ]
+    },
+    {
+      "id": "g1w11-kite",
+      "word": "kite",
+      "def": "A toy that flies in the wind on a string.",
+      "sentence": "We flew a kite at the park.",
+      "img": "",
+      "emoji": "🪁",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈkīt",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/k/kite0001.mp3",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "g1w11-swing",
+      "word": "swing",
+      "def": "A seat that hangs on ropes for children to swing on.",
+      "sentence": "She likes to swing high at the playground.",
+      "img": "",
+      "emoji": "🛝",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈswiŋ",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/swing001.mp3",
+      "partOfSpeech": "verb",
+      "usage": [
+        "I swung the bat.",
+        "The door swung open.",
+        "Monkeys can swing from branch to branch."
+      ]
+    },
+    {
+      "id": "g1w11-dog",
+      "word": "dog",
+      "def": "A furry animal that barks and is a popular pet.",
+      "sentence": "The dog wagged its tail happily.",
+      "img": "",
+      "emoji": "🐶",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈdȯg",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/d/dog00002.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "You lucky dog!"
+      ]
+    },
+    {
+      "id": "g1w11-twenty",
+      "word": "twenty",
+      "def": "The number that comes after nineteen.",
+      "sentence": "There are twenty crayons in the box.",
+      "img": "",
+      "emoji": "🔢",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈtwen-tē",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/t/twenty02.mp3",
+      "partOfSpeech": "adjective",
+      "usage": [
+        "One dollar equals twenty nickels."
+      ]
+    },
+    {
+      "id": "g1w11-kick",
+      "word": "kick",
+      "def": "To hit something with your foot.",
+      "sentence": "He gave the ball a big kick.",
+      "img": "",
+      "emoji": "⚽",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈkik",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/k/kick0001.mp3",
+      "partOfSpeech": "verb",
+      "usage": [
+        "kick a ball",
+        "kick a habit"
+      ]
+    },
+    {
+      "id": "g1w11-sky",
+      "word": "sky",
+      "def": "The space high above the earth where the clouds and sun are.",
+      "sentence": "A rainbow appeared in the sky.",
+      "img": "",
+      "emoji": "🌤️",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈskī",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/sky00001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "sunny skies"
+      ]
+    },
+    {
+      "id": "g1w11-bear",
+      "word": "bear",
+      "def": "A big, strong, furry wild animal.",
+      "sentence": "The bear caught a fish in the river.",
+      "img": "",
+      "emoji": "🐻",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈber",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/b/bear0001.mp3",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "g1w11-night",
+      "word": "night",
+      "def": "The time when it is dark and people sleep.",
+      "sentence": "We saw stars in the night sky.",
+      "img": "",
+      "emoji": "🌃",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈnīt",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/n/night001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "We go bowling every Friday night.",
+        "His eyes were black as night."
+      ]
+    },
+    {
+      "id": "g1w11-bike",
+      "word": "bike",
+      "def": "A two-wheeled ride you move by pushing the pedals.",
+      "sentence": "She rode her bike to school.",
+      "img": "",
+      "emoji": "🚲",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈbīk",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/b/bike0001.mp3",
+      "partOfSpeech": "noun"
+    }
+  ]
+}

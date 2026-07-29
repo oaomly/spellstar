@@ -1,0 +1,89 @@
+{
+  "grade": 1,
+  "week": 10,
+  "title": "Grade 1 · Week 10",
+  "words": [
+    {
+      "id": "g1w10-eleven",
+      "word": "eleven",
+      "def": "The number that comes after ten.",
+      "sentence": "There are eleven players on a football team.",
+      "img": "",
+      "emoji": "🔢",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "i-ˈle-vən",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/e/eleven01.mp3",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "g1w10-house",
+      "word": "house",
+      "def": "A building where people live.",
+      "sentence": "They painted their house blue.",
+      "img": "",
+      "emoji": "🏠",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈhau̇s",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/h/house001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "a carriage house",
+        "Her noise woke up the whole house.",
+        "The United States Congress is made up of two houses."
+      ]
+    },
+    {
+      "id": "g1w10-moon",
+      "word": "moon",
+      "def": "The bright round object that shines in the night sky.",
+      "sentence": "The moon glowed above the trees.",
+      "img": "",
+      "emoji": "🌙",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈmün",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/m/moon0001.mp3",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "g1w10-sky",
+      "word": "sky",
+      "def": "The space high above the earth where the clouds and sun are.",
+      "sentence": "The sky turned pink at sunset.",
+      "img": "",
+      "emoji": "🌤️",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈskī",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/s/sky00001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "sunny skies"
+      ]
+    },
+    {
+      "id": "g1w10-night",
+      "word": "night",
+      "def": "The time when it is dark and people sleep.",
+      "sentence": "Owls come out at night.",
+      "img": "",
+      "emoji": "🌃",
+      "tricky": false,
+      "chunksSource": "auto",
+      "chunks": [],
+      "pronMw": "ˈnīt",
+      "audioUrl": "https://media.merriam-webster.com/audio/prons/en/us/mp3/n/night001.mp3",
+      "partOfSpeech": "noun",
+      "usage": [
+        "We go bowling every Friday night.",
+        "His eyes were black as night."
+      ]
+    }
+  ]
+}
