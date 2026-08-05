@@ -34,7 +34,7 @@ export function FillBlankGame() {
     const withSentence = words.filter((w) => w.sentence);
     return withSentence.length >= 2 ? withSentence : words;
   }, [words]);
-  const questions = useMemo(() => buildQuestionSet(pool, 6), [pool, seed]);
+  const questions = useMemo(() => buildQuestionSet(pool), [pool, seed]);
   const [q, setQ] = useState(0);
   const [score, setScore] = useState(0);
   const [results, setResults] = useState<GameResult[]>([]);

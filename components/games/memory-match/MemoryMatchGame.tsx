@@ -24,7 +24,7 @@ export function MemoryMatchGame() {
   const [seed, setSeed] = useState(0);
 
   const { deck, pairCount } = useMemo(() => {
-    const picks = buildQuestionSet(words, 6);
+    const picks = buildQuestionSet(words);
     const cards: Card[] = [];
     picks.forEach((w) => {
       cards.push({ key: `${w.id}-w`, wordId: w.id, kind: 'word', label: w.word, isImg: false, audioUrl: w.audioUrl });

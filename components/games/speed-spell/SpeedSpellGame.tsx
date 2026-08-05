@@ -23,7 +23,7 @@ export function SpeedSpellGame() {
   const { playWord } = usePhonicsAudio();
   const { playCorrect, playWrong } = useFeedbackSound();
   const [seed, setSeed] = useState(0);
-  const questions = useMemo(() => buildQuestionSet(words, 6), [words, seed]);
+  const questions = useMemo(() => buildQuestionSet(words), [words, seed]);
   const [q, setQ] = useState(0);
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);

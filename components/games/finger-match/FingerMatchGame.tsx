@@ -16,7 +16,7 @@ export function FingerMatchGame() {
   const { words } = useWordList();
   const { playCorrect, playWrong } = useFeedbackSound();
   const [seed, setSeed] = useState(0);
-  const roundWords = useMemo(() => buildQuestionSet(words, 6), [words, seed]);
+  const roundWords = useMemo(() => buildQuestionSet(words), [words, seed]);
   const rightItems = useMemo(() => shuffle(roundWords), [roundWords]);
 
   const [selected, setSelected] = useState<string | null>(null);

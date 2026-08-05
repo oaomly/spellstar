@@ -12,7 +12,7 @@ import { useFeedbackSound } from '@/lib/tts/useFeedbackSound';
 export function PictureMatchGame() {
   const { words } = useWordList();
   const [seed, setSeed] = useState(0);
-  const questions = useMemo(() => buildQuestionSet(words, 6), [words, seed]);
+  const questions = useMemo(() => buildQuestionSet(words), [words, seed]);
   const [q, setQ] = useState(0);
   const [score, setScore] = useState(0);
   const [results, setResults] = useState<GameResult[]>([]);

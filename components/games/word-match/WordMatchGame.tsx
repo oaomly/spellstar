@@ -11,7 +11,7 @@ import { useFeedbackSound } from '@/lib/tts/useFeedbackSound';
 export function WordMatchGame() {
   const { words } = useWordList();
   const [seed, setSeed] = useState(0);
-  const set = useMemo(() => buildQuestionSet(words, 5), [words, seed]);
+  const set = useMemo(() => buildQuestionSet(words), [words, seed]);
   const leftCol = useMemo(() => shuffle(set), [set]);
   const rightCol = useMemo(() => shuffle(set), [set]);
   const { speak } = useSpeech();

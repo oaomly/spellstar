@@ -9,8 +9,8 @@ export function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-/** Build a question set of up to `max` words from the list. */
-export function buildQuestionSet(words: Word[], max = 6): Word[] {
+/** Build a shuffled question set from the list — all words by default, or up to `max`. */
+export function buildQuestionSet(words: Word[], max = words.length): Word[] {
   return shuffle(words).slice(0, Math.min(max, words.length));
 }
 
